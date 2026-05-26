@@ -3,7 +3,6 @@ package narrative
 import (
 	"bufio"
 	"errors"
-	"fmt"
 	"os"
 	"strconv"
 	"strings"
@@ -40,7 +39,7 @@ func ParseNarrativeFile(path string, id uint64) (*Shape.Narrative, error) {
 			continue
 		}
 
-		fmt.Println("[ RAW ] ", line)
+		// fmt.Println("[ RAW ] ", line)
 
 		switch {
 		case strings.HasPrefix(line, "# EPISODE"):
