@@ -1,0 +1,76 @@
+# EPISODE
+track: Astraphobia
+title: Into the Valley
+tagline: Thunder without storms
+
+# STORY
+
+T | 0 | Scene | Into the Valley
+
+1 | Naomi | Narration | Thunder rumbled off in the distance, yet there was no sign of a storm.
+2 | Naomi | Narration | Clear blue skies and a light breeze, the only thing out of place was a massive pit surrounded by geometric markings on the ground.
+3 | Naomi | Narration | It reminded me of what we flew out of in the desert.
+4 | Naomi | Narration | We had to be miles and miles away to see it so completely, even this high up.
+5 | Naomi | Narration | Grazing animals were like ants as they meandered between their several groups around the gaping abyss.
+6 | Naomi | Narration | Oblivious to the rising ground I impacted and deflected down the sloped hills.
+7 | Naomi | Narration | Skimming the tops of the green and brown blades, I braced for the short fall as I disengaged the Decoherence Mechanism.
+8 | Naomi | Narration | Sliding for a few meters produced grass stains on my elbows and knees.
+9 | Naomi | Narration | As I got to my feet Kai and the Emissaries silently touched down around me, Kai holding back a laugh after watching me hit the ground.
+10 | Naomi | Narration | Gazing into the valley, the uncultivated expanse within something so artificial entranced us; questions shouldered their way into awareness.
+11 | Naomi | Thought | Left alone, life will do as it always does and settle into a niche.
+12 | Naomi | Thought | Whether it currently exists or not is irrelevant, equilibrium is sought out, and it will be found.
+13 | Naomi | Thought | Energy will always be conserved.
+14 | Naomi | Thought | Life evolves as a response to its environment, so how do they fit into this?
+15 | Emissary | Spoken | Come, we must find shelter; the storm is almost upon us.
+
+T | 51 | Scene | Theory of Mind
+
+16 | Naomi | Narration | A quiet pressure permeates the land, directionless, omnipresent.
+17 | Naomi | Thought | Disconcerting.
+18 | Naomi | Narration | Thunder rolls lazily through the valley, but this was something different.
+19 | Naomi | Narration | The animals seem to pick up on it as well; herd boundaries have become fuzzy and several individuals left altogether, galloping toward the distant hills.
+20 | Naomi | Spoken | Are they afraid?
+21 | Naomi | Narration | Exposing my palm and placing it on the ground let a resonance enter my body, soft electricity flowing from my hand, up my forearm and into my spine.
+22 | Naomi | Narration | The familiarity sent a sharp pang of fear that settled in my stomach.
+23 | Naomi | Narration | I could feel a subtle increase in intensity and pulled my hand from the ground, letting my suit cover it once more.
+24 | Naomi | Thought | Perhaps that's why they're fleeing, in greater numbers now too.
+25 | Naomi | Narration | A soft buzzing lingered in my fingers as lightning shot from the chasm in the center of the valley.
+26 | Naomi | Narration | Thunder asserted itself as late morning gave way to twilight, with a quickness like that of a total solar eclipse.
+
+T | 89 | Scene | Phase II
+
+27 | Naomi | Narration | Looking toward the sky I half expected a black disk with smooth, silky white flames burning around the circumference, yet there was nothing.
+28 | Naomi | Narration | The sky remained less than forthcoming about letting us witness anything other than sky.
+29 | Naomi | Narration | This place had no moon, no sun for that matter.
+30 | Naomi | Narration | It had nothing, the closest thing to Oblivion incarnate at its core.
+31 | Naomi | Thought | I couldn't help but wonder what those animals knew, and why they no longer surrounded the thundering chasm.
+32 | Naomi | Narration | As the intensity grew even further, the tracks I witnessed during the descent slowly came alive.
+33 | Naomi | Narration | Parallel snakes headed by massive boulders.
+34 | Naomi | Narration | Coiling; constricting.
+
+T | 109 | Scene | Crucible
+
+35 | Naomi | Narration | Twilight faded to night as the sky fractured into numerous irregular obsidian slabs with a familiar incandescent glow that shone through the boundaries.
+36 | Naomi | Narration | Networked constellations criss-crossed the sky in lieu of stars.
+37 | Naomi | Thought | They were so large in the Forest...
+38 | Naomi | Narration | A few beats pass, then we get hit with the shockwave.
+39 | Naomi | Narration | The Emissary provided a hologram of the mirrors to observe since the frozen mirrors, white hot and blinding, were too bright to look at.
+40 | Naomi | Narration | The edges of each of the mirrors are the only visible area of light; the rest of their surface is focusing light that we can't see, but could render planets extinct with no heed time.
+41 | Naomi | Narration | Em provided a hologram of the mirrors to observe, and took the opportunity to share what they felt relevant.
+42 | Naomi | Narration | Naomi watched the ground on the other side of the barrier as rocks and pebbles began to float.
+43 | Naomi | Narration | Even though she was untethered, she could feel the raw strength of the electric and magnetic fields as the station accounted for changes in the incoming GRB.
+44 | Naomi | Narration | The deep resonance of the engine warping spacetime itself, forcing her own personal reference frame to respond.
+45 | Naomi | Thought | spacetime resonance...
+
+T | 147 | Scene | Divinity
+
+46 | Naomi | Spoken | Why don't sharks have bones?
+47 | Kai | Spoken | What?
+48 | Naomi | Spoken | Why don't sharks have bones?
+49 | Kai | Spoken | They have cartilage instead, they aren't a bony fish.
+50 | Naomi | Spoken | Right, but why?
+51 | Naomi | Spoken | It's for the same reason entire mountain ranges can be devoid of any skeletal structures as well.
+
+T | 187 | Scene | Orders of Magnitude
+
+# END

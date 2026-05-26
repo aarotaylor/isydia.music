@@ -1,0 +1,34 @@
+# EPISODE
+track: Atomkraft
+title: Copper Skies
+tagline: no...not a dream...
+
+# STORY
+
+T | 0 | Copper Skies | __
+1 | Narrator | Thought | I awoke to copper skies and auburn sunbeams. My visor was covered in dew droplets with mist permeating the air. Distant clouds glimmered in the warm light as the pillars that kept us company in our odyssey slowly blended with the sky. The walkers had stopped, and upon my stirring began to diffuse. Streams of iridescent mist gathered at the cliff's edge before blowing behind me toward the forest as I was gently laid on the ground. They flowed past several massive machines that resembled hourglasses laid on their side.
+2 | Narrator | Thought | Machines stood like sentries at the edge of the Forest, mist tethered in long laces to the center of the hourglass-shaped constructs. They pooled in the clearing, where Kai lay as if in a deep sleep, before continuing on into open air. A river of fog. A low hum emanated from each of them, with pulsing light from where the two bulbs met. 
+T | 36 |  | __
+3 | Narrator | Thought | The ambiance was broken with the sound of a rock tumbling onto the gravel behind me. Turning around were the two humanoids from earlier, now crouched on the ground, motionless. 
+4 | Narrator | Thought | I froze completely, eyes wide, darting between the two newcomers. That one a few paces behind the first had an L-shaped pack on its back. A few beats pass. The crouched one's head tilted from side to side, as if it was examining us, contemplating something. If they wanted to harm us they would've ambushed, what do they want? 
+5 | Naomi | Thought | they're being awfully considerate... 
+T | 48 | Contact | __
+6 | Emissary | Spoken | They make clouds, you have no need for fear here.
+7 | Narrator | Thought | Hearing some rustling I glance back towards the cliff, Kai had their right knee on the ground, arms motionless in a half raised "I surrender". His eyes darted between me and the humanoid figures. The crouching creature continued: 
+T | 60 |  | __
+8 | Emissary | Spoken | There are many many more scattered throughout this ring. You are compatible with these, hence we brought you here.
+9 | Naomi | Spoken | this ring?
+10 | Kai | Spoken | compatible?
+11 | Emissary | Spoken | You have no need for fear, we mean you no harm. Apologies for bringing you out of the Forest in such a rush, it wasn't safe for you there, and it still isn't right now. We must descend to the habitat proper for your safety; Inaction means death for you.
+T | 66 |  | __
+12 | Emissary | Spoken | We must fall, a storm is coming. Inaction means death for you
+13 | Narrator | Thought | Stopping roughly a meter in front of us and with a tilt of their heads, the speaking entity waved their six-fingered hand and our suits began transforming, Large packs formed on our back, yet there was no noticable increase in weight. 
+T | 96 | Inertial Influence | __
+14 | Narrator | Thought | 「 ✦ ⁂ ✦ 」 
+T | 144 | Free Will | __
+15 | Narrator | Thought | 「 ✦ ⁂ ✦ 」 
+T | 167 | Reunited; Onward | __
+16 | Narrator | Thought | 「 ✦ ⁂ ✦ 」 
+T | 192 | Herald | __
+17 | Narrator | Thought | Em trailed off, a glow began to pulse from within their wrist. They made a quick glance at it before reiterating the need for us to find shelter. 
+# END

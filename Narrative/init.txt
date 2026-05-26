@@ -1,0 +1,15 @@
+# EPISODE
+track: Astraphobia
+title: Into the Valley
+tagline: Life evolves as a response to its environment.
+# STORY
+T | 0 |Into the Valley|__________
+1 | Narrator | Thought | Thunder rumbled off in the distance, yet there was no sign of a storm. Clear blue skies and a light breeze, the only thing out of place was a massive pit surrounded by geometric markings on the ground. It reminded me of what we flew out of in the desert. We had to be miles and miles away, to see it so completely, even this high up. Grazing animals were like ants as they meandered between their several groups around the gaping abyss. Oblivious to the rising ground I impacted and deflected down the sloped hills. Skimming the tops of the green and brown blades, I braced for the short fall as I disengaged the Decoherence Mechanism. Sliding for a few meters produced grass stains on my elbows and knees. As I got to my feet Kai and the Emissaries silently touched down around me, Kai holding back a laugh after watching me hit the ground. Gazing into the valley, the uncultivated expanse within something so artifical entranced us; questions shouldered their way into awareness. Left alone, life will do as it always does and settle into a niche. Whether it currently exists or not is irrelevant, Equilibrium is sought out, and it will be found. Energy, will always be conserved. Life evolves as a response to its environment, so how do they fit into this?
+2 | Emissary | Spoken | Come, we must find shelter; the storm is almost upon us
+T | 51 |Theory of Mind|__________
+3 | Narrator | Thought | A quiet pressure permeates the land, directionless, omnipresent. Disconcerting. Thunder rolls lazily through the valley, but this was something different. The animals seem to pick up on it as well, herd boundaries have become fuzzy and several individuals left altogether, galloping toward the distant hills.
+4 | Naomi | Thought | Are they afraid?
+5 | Narrator | Thought | Exposing my palm and placing it on the ground let a resonance enter my body, soft electricity flowing from my hand, up my forearm and into my spine. The familiarity sent a sharp pang of fear that settled in my stomach. I could feel a subtle increase in intensity and pulled my hand from the ground, letting my suit cover it once more. 
+6 | Naomi | Thought | Perhaps that's why they're fleeing, in greater numbers now too
+7 | Narrator | Thought | A soft buzzing lingered in my fingers as lightning shot from the chasm in the center of the valley. Thunder asserted itself as late morning gave way to twilight, with a quickness like that of a total solar eclipse. 
+# END

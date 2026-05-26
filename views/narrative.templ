@@ -1,0 +1,40 @@
+package views
+
+import (
+    "isydia.music/model"
+)
+
+templ Narrative(){
+    @NavBar()
+    @OpenDataStream01()
+    @CloseDataStream01()
+}
+
+templ TextItem(text, speaker, voice string) {
+    <p class="text-between">{ text }</p>
+}
+
+// Renders a 
+templ AnchorItem(anchor model.Anchor) {
+    @Timestamp(anchor.Timestamp)
+    for _, storyText := range anchor.Sequence {
+        @TextItem(storyText.Text, storyText.Speaker, storyText.Voice)
+    }
+}
+
+templ NarrativePage(title string, narrative model.Narrative) {
+    @NarrativeLayout(title, "narrative") {
+        for _, anchor := range narrative.Collection {
+            @AnchorItem(anchor)
+        }
+    }
+}
+
+templ Timestamp(timestamp int){
+
+    // convert from int into mm:ss
+	<div class="track-time">
+        <b class="timestamp" data-time={timestamp}>⌞---- {model.SecondsToMMSS(timestamp)} ----⌝</b>
+    </div>
+}
+

@@ -1,0 +1,100 @@
+package views
+
+// This module contains components common to most pages.
+/*
+
+from the <html><head><body></body></head></html>,
+to smaller
+
+*/
+
+templ Layout(title string) {
+	<!DOCTYPE html>
+	<html lang="en">
+		<head>
+			<meta charset="UTF-8"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+			<title>{ title }</title>
+			<link rel="stylesheet" href="/static/syaksa.css"/>
+		</head>
+		@NavBar()
+		<body>
+			<header>
+				<h1>templ + Go</h1>
+			</header>
+			<main>
+				{ children... }
+			</main>
+			<footer>
+				<p>Footer content</p>
+			</footer>
+			@CloseDataStream01()
+		</body>
+	</html>
+}
+
+templ NarrativeLayout(title string, bodyKind string) {
+	<!DOCTYPE html>
+	<html lang="en">
+		<head>
+			<meta charset="UTF-8"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+			<title>{ title }</title>
+			<link rel="stylesheet" href="/static/css/syaksa.css"/>
+		</head>
+		<body class="body-text { bodyKind }-text">
+			@NavBar()
+			<header>
+				<h1></h1>
+			</header>
+			@OpenDataStream01()
+				{ children... }
+			<footer>
+				<p>{ title }</p>
+			</footer>
+			@CloseDataStream01()
+		</body>
+	</html>
+}
+
+templ ContentContainer(){
+	
+}
+
+templ NavBar() {
+	<div class="container nav-container">
+		<!-- Site navigation.  -->
+		<div class="navbar narrative-nav">
+			<a class="navlink" href="/static/helix-corp.html">Home</a>
+			<a class="navlink" href="/static/syaksa/syaksa.html">Syaksa</a>
+			<a class="navlink">Updates</a>
+			<a class="navlink" href="nav/purpose.html">Purpose</a>
+			<a class="navlink">Releases</a>
+			<a class="navlink">Links</a>
+		</div>
+	</div>
+}
+
+templ Title(title, episode, tagline string) {
+	<h1 class="track-name">Penrose Engine</h1>
+	<h2 class="episode"><b>{ episode }</b></h2>
+	<h3 class="tagline"><small>{ tagline }</small></h3>
+}
+
+// TODO: when the global timer initiated by audio playback hits timestamp, the color of the text should change
+templ TrackTime(episode, elapsed_time string, timestamp int) {
+	<div class="track-time" id="-start">
+		<b class="timestamp" data-time="0">---- { elapsed_time } ----</b>
+		<br/>
+		<i class="timestamp-episode">{ episode }</i>
+	</div>
+}
+
+templ LinkTableRow(Title, URL string) {
+	<tr>
+		<td>
+			<p>{ Title }</p>
+		</td>
+		<td><a href="{ URL }">「\ ⁂ \」</a></td>
+	</tr>
+}
