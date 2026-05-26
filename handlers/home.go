@@ -38,6 +38,10 @@ func NarrativeHandler(w http.ResponseWriter, r *http.Request) {
 	narrative, err := ingress.ParseNarrativeFile("./Narrative/"+destination[0]+"/"+destination[1]+".txt", 0) // TODO: WRITE NARRATIVE FILE
 	if err != nil {
 		fmt.Println(err.Error())
+		component := views.Home("Dimensional Gateway", "You've found a teapot! ✨")
+		if err := component.Render(r.Context(), w); err != nil {
+			http.Error(w, "Render error", http.StatusInternalServerError)
+		}
 	}
 	// fmt.Printf("[ Parsed narrative: ] %+v\n", narrative)
 	component := views.NarrativePage(narrative.Episode.EpisodeTitle, *narrative)
