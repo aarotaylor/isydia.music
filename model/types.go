@@ -31,10 +31,12 @@ type Narrative struct {
 
 // Header text for a given episode. Placed at the top of a Narrative
 type EpisodeText struct {
-	ID           uint64 `json:"id"`
-	TrackName    string // Name of the track associated with this episode
-	EpisodeTitle string // Title of the episode
-	TaglineText  string
+	ID            uint64 `json:"id"`
+	TrackName     string // Name of the track associated with this episode
+	EpisodeTitle  string // Title of the episode
+	TaglineText   string
+	Album         string
+	EpisodeNumber int
 }
 
 // General object for page text that isn't Narrative related
@@ -49,4 +51,11 @@ func SecondsToMMSS(seconds int) string {
 	remainingSeconds := seconds % 60
 
 	return fmt.Sprintf("%02d:%02d", minutes, remainingSeconds)
+}
+
+type Album struct {
+	ID         uint64 `json:"id"`
+	AlbumName  string
+	Narratives []Narrative
+	ArtistName string
 }

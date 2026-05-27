@@ -1,0 +1,35 @@
+# EPISODE
+track: The Forbidden Forest
+title: Terran Reserve
+tagline: the sounds of home
+album: Syaksa
+episode_number: 3
+
+# STORY
+T | 0 | Terran Reserve | 
+1 | Naomi | Narration | The transport came to a stop, powered down and opened to a forest clearing bathed in warm orange light. Waist high bushes and shrubs flanked several footpaths that looped around and connected back forming a circuit, which made this clearing feel even smaller. The stillness felt foreign; a closer look into the distance revealed that the area was surrounded by large boulders and stone walls. Were we being held here? My suit read the environment to be remarkably similar to Earth's, 60% Nitrogen, 15% Oxygen, 15% Carbon Dioxide, lacking any obvious toxins. Breathable. I could hear noises of the night: insects and nocturnal animals going about their business. A quiet breeze rustling leaves. Sounds of home in this alien place. Were we transported again? Certainly possible, thats how we ended up wherever we were, flying over deserts and on giant megastructures, but that didn't make sense to me. Where was the blinding blue light?
+T | 69 | Tentative Steps | 
+2 | Naomi | Narration | We announced our prescence as we stepped out of the transport onto the dense floor, our metallic footsteps ringing out in a slow cadence. Tentative, uncertain. Foliage appeared to grow out of obelisks that defined the walkways, small pyramid tipped basalt constructs lined with more alien glyphs. I knelt to pick up a leaf beside one of them, an optimistic souvenir. It had a long stem, mirrored bilaterally with leaves... and immediately thought of the fossil just outside the chamber entrance where this all started. I refused to believe this was a mere coincidence.
+3 | Naomi | Narration | Kai had continued ahead towards an obsidian console similar to the one in the transport. More glyphs appeared as they approached, tinted a cool teal and accented by the orange light flooding in. Images of alien creatures shifted periodically, most were unfamiliar, strange, but a few were uncomfortably close to Terranic organisms. A winged avian form with large eyes and talons, a quadruped with bony growths emerging from its head. A jellyfish that appeared static, lacking the pulsing movement of the doppelgangers back on Earth. Several that were wholly unfamilliar. While we were observing the hologram, I noticed movement in my periphery, a shadow. Its owner was a small furry creature that darted through a previously unseen opening in the wall opposite us. I moved to follow, finding a short passageway through the [old adjective] stone boulder. Mist flowed softly from the other side.
+4 | Naomi | Narration | I hadn't realized the calming effect this area had on me; a pit formed in my stomach and my breathing became shallow again as I stared through the narrow basalt corridor. Flashes of the undersea entrance passed through my awareness
+5 | Naomi | Thought | why did I insist on getting a sample from the source...surely what we had was enough? we would've been on our ascent back to the ocean surface by now...
+T | 116 |  | 
+6 | Naomi | Narration | Dusk light filtered through the fog that flowed from beyond the stone walls, before color faded back to the lonely teal projected by the slab.
+T | 141 | Into the Dark Forest | 
+7 | Naomi | Narration | Passing the threshold revealed a scene that was intensely agoraphobic: the trek here had all been done in corridors and transports, caves and submarines. Bounded. Confined. To the left and right lay a view similar to looking out the window descending into Challenger Deep, punctuated every so often with more incandescent pillars. Ahead of us, emerging canopy-first out of the fog, were the tops of titanic trees, casting darkness with multiple overlapping shadows falling on the blazing mist. These had to be truly Ancient sentinels. A large avian creature, wings outstretched and unmoving, flew straight up across the treetops, uncaring about the gravity we were forced to obey. Fear gripped me, forced confinement to where one could see their own shadow in this strange place, but fear would soon force us out of this exposed position, down the stairs, and into the relative darkness of the strange Forest that lay ahead.
+8 | Naomi | Narration | We were barely amongst the low shrubs and below enormous trees when the forest became bathed in a penatrating orange. A shadow slilently swept over us as we reflexively crouched behind a shrub. It's owner seemingly another shadow, a bipedal silhouette standing in the center of an incandescent pillar.
+9 | Naomi | Thought | "humanoid?"
+10 | Naomi | Narration | Naomi held her gaze on the motionless figure as she stole glances far above its head, the pillar disappearing into the fog; a diffuse warm glow saturated the strange Forest.
+T | 165 | Deeper | 
+T | 189 | Pursued | 
+11 |  |  | 「 ⁂ 」
+T | 203 | Respite | 
+12 |  |  | 「 ⁂ 」
+T | 237 | Abduction | 
+13 |  |  | 「 ⁂ 」
+T | 261 | Salamander Walk | 
+14 |  |  | 「 ⁂ 」
+T | 303 | Halt | 
+15 |  |  | 「 ⁂ 」
+T | 313 | Proton Decay? | 
+# END

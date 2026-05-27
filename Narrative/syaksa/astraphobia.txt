@@ -2,6 +2,8 @@
 track: Astraphobia
 title: Into the Valley
 tagline: Thunder without storms
+album: Syaksa
+episode_number: 5
 
 # STORY
 
