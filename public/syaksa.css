@@ -526,7 +526,7 @@ table {
 }
 
 /* Pseudo-element for background image */
-.tff::before {
+.the_forbidden_forest::before {
     content: "";
     position: absolute;
     top: 0;
@@ -542,7 +542,7 @@ table {
     /* Initially set to 0 (black background) */
 }
 
-.tff-text {}
+.the_forbidden_forest-text {}
 
 .atomkraft {
     background-image: url(img/_atomkraft_.jpg);
@@ -637,23 +637,23 @@ p {
 
 /*---------------------- Naomi ----------------------*/
 
-.naomi-thoughts {
+.naomi-thought {
     color: teal
 }
 
 /*---------------------- Kai ----------------------*/
 
-.kai-thoughts {
+.kai-thought {
     color: seagreen
 }
 
-.kai-dialogue {
+.kai-spoken {
     color: green
 }
 
 /*---------------------- syaksa ----------------------*/
 
-.emissary-dialogue {
+.emissary-spoken {
     color: purple
 }
 

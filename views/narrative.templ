@@ -2,6 +2,7 @@ package views
 
 import (
     "isydia.music/model"
+	"strings"
 )
 
 templ Narrative(){
@@ -11,14 +12,14 @@ templ Narrative(){
 }
 
 templ TextItem(text, speaker, voice string) {
-    <p class="text-between">{ text }</p>
+    <p class={"text-between", speaker+"-"+voice}>{ text }</p>
 }
 
 // Renders a 
 templ AnchorItem(anchor model.Anchor) {
     @Timestamp(anchor.Timestamp)
     for _, storyText := range anchor.Sequence {
-        @TextItem(storyText.Text, storyText.Speaker, storyText.Voice)
+        @TextItem(storyText.Text, strings.ToLower(storyText.Speaker), strings.ToLower(storyText.Voice))
     }
 }
 

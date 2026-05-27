@@ -41,17 +41,29 @@ func NarrativeHandler(w http.ResponseWriter, r *http.Request) {
 	collection := strings.ToLower(strings.ReplaceAll(destination[0], " ", "_"))
 	item_name := strings.ToLower(strings.ReplaceAll(destination[1], " ", "_"))
 
-	narrative, err := ingress.ParseNarrativeFile("./Narrative/"+collection+"/"+item_name+".txt", 0) // TODO: WRITE NARRATIVE FILE
-	if err != nil {
-		fmt.Println(err.Error())
-		component := views.Home("Dimensional Gateway", "You've found a teapot! ✨")
+	// Handle the case where only the collection is selected, it should list the episodes in that collection.
+	if item_name == "" {
+		// This type isn't implemented yet. It will wait until objectbox is implemented.
+		// Objectbox will store Albums, which contain Narratives.
+		component := views.Home("Dimensional Gateway", "...you have encountered the Absence of something...of somethings... ✨")
 		if err := component.Render(r.Context(), w); err != nil {
 			http.Error(w, "Render error", http.StatusInternalServerError)
 		}
-	}
-	// fmt.Printf("[ Parsed narrative: ] %+v\n", narrative)
-	component := views.NarrativePage(narrative.Episode.EpisodeTitle, item_name, narrative)
-	if err := component.Render(r.Context(), w); err != nil {
-		http.Error(w, "Render error", http.StatusInternalServerError)
+	} else {
+		narrative, err := ingress.ParseNarrativeFile("./Narrative/"+collection+"/"+item_name+".txt", 0) // TODO: WRITE NARRATIVE FILE
+		if err != nil {
+			fmt.Println(err.Error())
+			component := views.Home("Dimensional Gateway", "You've found a teapot! ✨")
+			if err := component.Render(r.Context(), w); err != nil {
+				http.Error(w, "Render error", http.StatusInternalServerError)
+			}
+		}
+		// fmt.Printf("[ Parsed narrative: ] %+v\n", narrative)
+		component := views.NarrativePage(narrative.Episode.EpisodeTitle, item_name, narrative)
+		if err := component.Render(r.Context(), w); err != nil {
+			http.Error(w, "Render error", http.StatusInternalServerError)
+
+		}
+
 	}
 }
