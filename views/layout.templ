@@ -81,18 +81,19 @@ templ ContentContainer(){
 	
 }
 
+// allow some pages to alter the destination of the nav bar links, or to add new ones.
 templ NavBar() {
 	<br>
 	<div class="container nav-container">
 		<!-- Site navigation.  -->
 		<div class="navbar narrative-nav">
-			<a class="navlink" href="/static/helix-corp.html">Home</a>
+			<a class="navlink" href="/">Home</a>
 			<a class="navlink" href="/narratives">Narratives</a>
-			<a class="navlink">Updates</a>
-			<a class="navlink" href="nav/purpose.html">Purpose</a>
-			<a class="navlink">Releases</a>
-			<a class="navlink">Links</a>
-			<a class="navlink">Attributes</a> // Credits for the project, and component pieces
+			<a class="navlink" href="/updates">Updates</a>
+			<a class="navlink" href="/purpose">Purpose</a>
+			<a class="navlink" href="/releases">Releases</a>
+			<a class="navlink" href="/hub">Links</a>
+			<a class="navlink" href="/credits">Attributes</a> // Credits for the project, and component pieces
 		</div>
 	</div>
 }
