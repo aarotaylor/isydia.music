@@ -339,7 +339,7 @@ table {
 
 .audio-container {}
 
-.ac-penrose {
+.ac-penrose_engine {
 
     animation: penrose-pulses ease;
     animation-iteration-count: infinite;
@@ -350,14 +350,14 @@ table {
     /* transition: transform 0.6s cubic-bezier(0.68, 3.6, 0.32, 1.6); */
 }
 
-.ac-tff {
+.ac-the_forbidden_forest {
     animation: tff-sweeps ease;
     animation-iteration-count: infinite;
     animation-duration: 1.42s;
     animation-fill-mode: both;
 }
 
-.ac-atomkr {
+.ac-atomkraft {
 
     animation: atomkr-pings ease;
     animation-iteration-count: infinite;
@@ -366,7 +366,7 @@ table {
 
 }
 
-.ac-astra {
+.ac-astraphobia {
     animation: astr-strikes ease;
     animation-iteration-count: infinite;
     animation-duration: 1.2s;
@@ -380,7 +380,7 @@ table {
     animation-fill-mode: both;
 }
 
-.ac-proton {
+.ac-proton_decay {
     animation: changeColor ease;
     animation-iteration-count: infinite;
     animation-duration: 1.34s;
@@ -520,7 +520,7 @@ table {
     /* color: transparent */
 }
 
-.tff {
+.the_forbidden_forest {
     background-image: url(img/_forbidden-forest_.jpg);
     background-size: cover;
 }

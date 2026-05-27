@@ -13,6 +13,7 @@ to smaller
 
 */
 
+// 404 Page
 templ Layout(title string) {
 	<!DOCTYPE html>
 	<html lang="en">
@@ -24,29 +25,34 @@ templ Layout(title string) {
 		</head>
 		@NavBar()
 		<body>
-			@OpenDataStream03()
 			<header>
-				<h1>...stepping through a <a>Rift</a> in space...</h1>
 			</header>
+			<br/>
+			<div class="body-text">
+
+			@OpenDataStream03()
+				<h1>...stepping through a <a>Rift</a> in space...</h1>
 				{ children... }
+
+			@CloseDataStream03()
+			</div>
 			<footer>
 			</footer>
-			@CloseDataStream03()
 		</body>
 	</html>
 }
 
-templ AudioPlayer(narrative *model.Narrative) {
+templ AudioPlayer(item_name string) {
 	<div class="audio-player">
-		<audio id="audioPlayer" class={"ac-"+strings.ToLower(narrative.Episode.TrackName)} controls>
-			<source src="/static/audio/astraphobia.mp3" type="audio/mpeg">
+		<audio id="audioPlayer" class={"ac-"+item_name} controls>
+			<source src={"/static/audio/"+item_name+".mp3"} type="audio/mpeg">
 			Your browser does not support the audio element.
 		</audio>
 	</div>
 }
 
 // all text coming in must be ToLower()'d
-templ NarrativeLayout(title string, narrative *model.Narrative) {
+templ NarrativeLayout(title string, item_name string, narrative *model.Narrative) {
 	<!DOCTYPE html>
 	<html lang="en">
 		<head>
@@ -55,7 +61,7 @@ templ NarrativeLayout(title string, narrative *model.Narrative) {
 			<title>{ title }</title>
 			<link rel="stylesheet" href="/static/syaksa.css"/>
 		</head>
-		<body class={strings.ToLower(narrative.Episode.TrackName)}>
+		<body class={item_name}>
 			@NavBar()
 			<header>
 				<h1></h1>
@@ -64,8 +70,8 @@ templ NarrativeLayout(title string, narrative *model.Narrative) {
 
 			@NavNarrative()
 
-			@AudioPlayer(narrative)
-			<div class={"body-text", strings.ToLower(narrative.Episode.TrackName)+"-text"}>
+			@AudioPlayer(item_name)
+			<div class={"body-text", strings.Replace(narrative.Episode.TrackName, " ", "-", -1)+"-text"}>
 			@OpenDataStream01()
 				{ children... }
 			@CloseDataStream01()

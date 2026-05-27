@@ -39,9 +39,9 @@ func NarrativeHandler(w http.ResponseWriter, r *http.Request) {
 	// File convention: narrative file types (as well as others)
 	// will have spaces replaced with underscores, and will be all lowercase
 	collection := strings.ToLower(strings.ReplaceAll(destination[0], " ", "_"))
-	file := strings.ToLower(strings.ReplaceAll(destination[1], " ", "_"))
+	item_name := strings.ToLower(strings.ReplaceAll(destination[1], " ", "_"))
 
-	narrative, err := ingress.ParseNarrativeFile("./Narrative/"+collection+"/"+file+".txt", 0) // TODO: WRITE NARRATIVE FILE
+	narrative, err := ingress.ParseNarrativeFile("./Narrative/"+collection+"/"+item_name+".txt", 0) // TODO: WRITE NARRATIVE FILE
 	if err != nil {
 		fmt.Println(err.Error())
 		component := views.Home("Dimensional Gateway", "You've found a teapot! ✨")
@@ -50,7 +50,7 @@ func NarrativeHandler(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 	// fmt.Printf("[ Parsed narrative: ] %+v\n", narrative)
-	component := views.NarrativePage(narrative.Episode.EpisodeTitle, narrative)
+	component := views.NarrativePage(narrative.Episode.EpisodeTitle, item_name, narrative)
 	if err := component.Render(r.Context(), w); err != nil {
 		http.Error(w, "Render error", http.StatusInternalServerError)
 	}
