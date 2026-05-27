@@ -44,7 +44,7 @@ func NarrativeHandler(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 	// fmt.Printf("[ Parsed narrative: ] %+v\n", narrative)
-	component := views.NarrativePage(narrative.Episode.EpisodeTitle, *narrative)
+	component := views.NarrativePage(narrative.Episode.EpisodeTitle, narrative)
 	if err := component.Render(r.Context(), w); err != nil {
 		http.Error(w, "Render error", http.StatusInternalServerError)
 	}

@@ -1,6 +1,9 @@
 package views
 
-import "strings"
+import (
+	"strings"
+	"isydia.music/model"
+)
 
 // This module contains components common to most pages.
 /*
@@ -33,9 +36,17 @@ templ Layout(title string) {
 	</html>
 }
 
+templ AudioPlayer(narrative *model.Narrative) {
+	<div class="audio-player">
+		<audio id="audioPlayer" class={"ac-"+strings.ToLower(narrative.Episode.TrackName)} controls>
+			<source src="/static/audio/astraphobia.mp3" type="audio/mpeg">
+			Your browser does not support the audio element.
+		</audio>
+	</div>
+}
 
 // all text coming in must be ToLower()'d
-templ NarrativeLayout(title string, bodyKind string) {
+templ NarrativeLayout(title string, narrative *model.Narrative) {
 	<!DOCTYPE html>
 	<html lang="en">
 		<head>
@@ -44,19 +55,24 @@ templ NarrativeLayout(title string, bodyKind string) {
 			<title>{ title }</title>
 			<link rel="stylesheet" href="/static/syaksa.css"/>
 		</head>
-		<body class={strings.ToLower(bodyKind)}>
+		<body class={strings.ToLower(narrative.Episode.TrackName)}>
 			@NavBar()
 			<header>
 				<h1></h1>
+				@Title(narrative.Episode.TrackName, narrative.Episode.EpisodeTitle, narrative.Episode.TaglineText)
 			</header>
+
+			@NavNarrative()
+
+			@AudioPlayer(narrative)
+			<div class={"body-text", strings.ToLower(narrative.Episode.TrackName)+"-text"}>
 			@OpenDataStream01()
-			<div class={"body-text", bodyKind+"-text"}>
 				{ children... }
+			@CloseDataStream01()
 			</div>
 			<footer>
 				<p>{ title }</p>
 			</footer>
-			@CloseDataStream01()
 		</body>
 	</html>
 }
@@ -66,6 +82,7 @@ templ ContentContainer(){
 }
 
 templ NavBar() {
+	<br>
 	<div class="container nav-container">
 		<!-- Site navigation.  -->
 		<div class="navbar narrative-nav">
@@ -81,9 +98,18 @@ templ NavBar() {
 }
 
 templ Title(title, episode, tagline string) {
-	<h1 class="track-name">Penrose Engine</h1>
+	<h1 class="track-name">{ title }</h1>
 	<h2 class="episode"><b>{ episode }</b></h2>
 	<h3 class="tagline"><small>{ tagline }</small></h3>
+}
+// This template navigates according to the narrative structure.
+// Three links: Previous, Collection, Next.
+templ NavNarrative(){
+	<a class="step-back" href="">Back</a>
+	<a class="home" href="">
+		<img class="portrait" src="/static/home.png" alt="Home"/>
+	</a>
+	<a class="step-forward" href="">Forward</a>
 }
 
 // TODO: when the global timer initiated by audio playback hits timestamp, the color of the text should change

@@ -1,7 +1,6 @@
 package views
 
 import (
-    "strings"
     "isydia.music/model"
 )
 
@@ -23,8 +22,8 @@ templ AnchorItem(anchor model.Anchor) {
     }
 }
 
-templ NarrativePage(title string, narrative model.Narrative) {
-    @NarrativeLayout(title, strings.ToLower(narrative.Episode.TrackName)) {
+templ NarrativePage(title string, narrative *model.Narrative) {
+    @NarrativeLayout(title, narrative) {
         for _, anchor := range narrative.Collection {
             @AnchorItem(anchor)
         }
