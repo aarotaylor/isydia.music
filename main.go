@@ -1,8 +1,10 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"net/http"
+	"os"
 
 	fsr "isydia.music/handlers"
 	ingress "isydia.music/ingress"
@@ -11,10 +13,16 @@ import (
 func main() {
 
 	mux := http.NewServeMux()
-
+	cwd, _ := os.Getwd()
+	fmt.Println("working dir:", cwd)
+	if _, err := os.Stat("public/syaksa.css"); err != nil {
+		fmt.Println("not found:", err)
+	} else {
+		fmt.Println("found syaksa.css")
+	}
 	// Routes
 	// Static files
-	fs := http.FileServer(http.Dir("public"))
+	fs := http.FileServer(http.Dir("./public"))
 	mux.Handle("/static/", http.StripPrefix("/static/", fs))
 	mux.HandleFunc("/purpose", fsr.PurposeHandler)
 

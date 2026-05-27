@@ -10,7 +10,7 @@ import (
 )
 
 func HomeHandler(w http.ResponseWriter, r *http.Request) {
-	component := views.Home("Templ App", "You are now using real templ components ✨")
+	component := views.Home("Templ App", "...you are now Lost ✨")
 
 	if err := component.Render(r.Context(), w); err != nil {
 		http.Error(w, "Render error", http.StatusInternalServerError)

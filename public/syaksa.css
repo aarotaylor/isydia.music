@@ -10,7 +10,7 @@
 
 @font-face {
     font-family: Redacted;
-    src: url(/static/fonts/redacted-script_5.2.8/webfonts/redacted-script-latin-300-normal.woff2) format('woff2');
+    src: url(/static/fonts/redacted-script_5.2.8/ttf/redacted-script-latin-300-normal.ttf) format('truetype');
 }
 
 @keyframes changeColor {
