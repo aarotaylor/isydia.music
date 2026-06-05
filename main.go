@@ -1,10 +1,8 @@
 package main
 
 import (
-	"fmt"
 	"log"
 	"net/http"
-	"os"
 
 	fsr "isydia.music/handlers"
 	ingress "isydia.music/ingress"
@@ -12,14 +10,23 @@ import (
 
 func main() {
 
+	// _, _ = model.InitBedRock() // initialize objectbox; Syaksa stores a deep history in the third ring.
+
+	// third_ring.
+	// model.SeedBedRock(third_ring) // seed objectbox with Narrative data from the Narrative files. This will be replaced with a more robust seeding process once objectbox is fully implemented.
+
 	mux := http.NewServeMux()
-	cwd, _ := os.Getwd()
-	fmt.Println("working dir:", cwd)
-	if _, err := os.Stat("public/syaksa.css"); err != nil {
-		fmt.Println("not found:", err)
-	} else {
-		fmt.Println("found syaksa.css")
-	}
+	// ---------------------------
+	// cwd, _ := os.Getwd()
+
+	// fmt.Println("working dir:", cwd)
+	// if _, err := os.Stat("public/syaksa.css"); err != nil {
+	// 	fmt.Println("not found:", err)
+	// } else {
+	// 	fmt.Println("found syaksa.css")
+	// }
+	// ---------------------------
+
 	// Routes
 	// Static files
 	fs := http.FileServer(http.Dir("./public"))
@@ -29,7 +36,13 @@ func main() {
 	// Narrative routes
 	// these will be of the form
 	//   /narratives/[collection(album)]/[episode]
-	mux.HandleFunc("/narratives/", fsr.NarrativeHandler)
+	mux.HandleFunc("/narratives/{collection}", fsr.CollectionHandler)
+	mux.HandleFunc("/narratives/{collection}/{episode}", fsr.NarrativeHandler)
+
+	mux.HandleFunc("/updates", fsr.HomeHandler)
+	mux.HandleFunc("/releases", fsr.HomeHandler)
+	mux.HandleFunc("/hub", fsr.HomeHandler)
+	mux.HandleFunc("/credits", fsr.HomeHandler)
 	mux.HandleFunc("/", fsr.HomeHandler)
 
 	log.Println("Server running at http://localhost:8080")

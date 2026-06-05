@@ -11,8 +11,54 @@ templ Narrative(){
     @CloseDataStream01()
 }
 
+
+func lowerAndUnder(s string) string {
+    return strings.Replace(strings.ToLower(s), " ", "_", -1)
+}
+
 templ TextItem(text, speaker, voice string) {
     <p class={"text-between", speaker+"-"+voice}>{ text }</p>
+}
+
+templ NarrativeTable(collection string, narratives []model.Narrative) {
+	<br/>
+	
+	<table class="narrative-table">
+			<thead class="narrative-entry">
+			<tr>
+				<th>Narrative</th>
+				<th>Title</th>
+				<th>Project</th>
+				</tr>
+				
+			</thead>
+		for _, narrative := range narratives {
+			<tbody class="narrative-entry">
+				<th><a class="episode-link" href={ "/narratives/" + lowerAndUnder(collection) + "/" + lowerAndUnder(narrative.Episode.TrackName) }>{ narrative.Episode.TrackName }</a></th>
+				<th>{ narrative.Episode.EpisodeTitle }</th>
+				<th>{ narrative.Episode.TaglineText }</th>
+					
+			</tbody>
+		}
+		
+	</table>
+		// { range .Narratives }
+		// <tr>
+		// 	<td>{ .Episode.EpisodeTitle }</td>
+		// 	<td>{ .Episode.TrackName }</td>
+		// 	<td>{ .Episode.TaglineText }</td>
+		// </tr>
+		// { end }
+}
+
+// This template navigates according to the narrative structure.
+// Three links: Previous, Collection, Next.
+templ NavNarrative(){
+	<a class="step-back" href="">Back</a>
+	<a class="home" href="">
+		<img class="portrait" src="/static/home.png" alt="Home"/>
+	</a>
+	<a class="step-forward" href="">Forward</a>
 }
 
 // Renders a 
@@ -23,12 +69,44 @@ templ AnchorItem(anchor model.Anchor) {
     }
 }
 
-templ NarrativePage(title string, item_name string, narrative *model.Narrative) {
-    @NarrativeLayout(title, item_name, narrative) {
+templ NarrativePage(title, item_name, artist string, narrative *model.Narrative) {
+    @NarrativeLayout(title, item_name, narrative, artist) {
         for _, anchor := range narrative.Collection {
             @AnchorItem(anchor)
         }
     }
+}
+
+// all text coming in must be ToLower()'d
+templ NarrativeLayout(title string, item_name string, narrative *model.Narrative, artist string) {
+	<!DOCTYPE html>
+	<html lang="en">
+		<head>
+			<meta charset="UTF-8"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+			<title>{ title }</title>
+			<link rel="stylesheet" href="/static/syaksa.css"/>
+		</head>
+		<body class={ item_name }>
+			@NavBar()
+			<header>
+				<h1></h1>
+				@Title(narrative.Episode.TrackName, narrative.Episode.EpisodeTitle, narrative.Episode.TaglineText)
+			</header>
+
+			@NavNarrative()
+
+			@AudioPlayer(item_name, artist)
+			<div class={"body-text", strings.Replace(narrative.Episode.TrackName, " ", "-", -1)+"-text"}>
+			@OpenDataStream01()
+				{ children... }
+			@CloseDataStream01()
+			</div>
+			<footer>
+				<p>{ title }</p>
+			</footer>
+		</body>
+	</html>
 }
 
 templ Timestamp(timestamp int){

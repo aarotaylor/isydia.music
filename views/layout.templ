@@ -1,9 +1,6 @@
 package views
 
-import (
-	"strings"
-	"isydia.music/model"
-)
+import "isydia.music/model"
 
 // This module contains components common to most pages.
 /*
@@ -25,71 +22,84 @@ templ Layout(title string) {
 		</head>
 		@NavBar()
 		<body>
-			<header>
-			</header>
+			<header></header>
 			<br/>
 			<div class="body-text">
-
-			@OpenDataStream03()
+				@OpenDataStream03()
 				<h1>...stepping through a <a>Rift</a> in space...</h1>
 				{ children... }
-
-			@CloseDataStream03()
+				@CloseDataStream03()
 			</div>
-			<footer>
-			</footer>
+			<footer></footer>
 		</body>
 	</html>
 }
 
-templ AudioPlayer(item_name string) {
-	<div class="audio-player">
-		<audio id="audioPlayer" class={"ac-"+item_name} controls>
-			<source src={"/static/audio/"+item_name+".mp3"} type="audio/mpeg">
-			Your browser does not support the audio element.
-		</audio>
-	</div>
-}
-
-// all text coming in must be ToLower()'d
-templ NarrativeLayout(title string, item_name string, narrative *model.Narrative) {
+templ BasicText(text string) {
 	<!DOCTYPE html>
 	<html lang="en">
 		<head>
 			<meta charset="UTF-8"/>
 			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-			<title>{ title }</title>
+			<title>{ "「⌞ ⁂ ⌝」" }</title>
 			<link rel="stylesheet" href="/static/syaksa.css"/>
 		</head>
-		<body class={item_name}>
+		@NavBar()
+		<body>
+			<header></header>
+			<br/>
+			<div class="body-text">
+				@OpenDataStream03()
+				<p>{ text }</p>
+				{ children... }
+				@CloseDataStream03()
+			</div>
+			<footer></footer>
+		</body>
+	</html>
+}
+
+templ CollectionLayout(collection *model.Album) {
+	<!DOCTYPE html>
+	<html lang="en">
+		<head>
+			<meta charset="UTF-8"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+			<title>{ collection.AlbumText.EpisodeTitle }</title>
+			<link rel="stylesheet" href="/static/syaksa.css"/>
+		</head>
+		<body class="collection-page">
 			@NavBar()
 			<header>
-				<h1></h1>
-				@Title(narrative.Episode.TrackName, narrative.Episode.EpisodeTitle, narrative.Episode.TaglineText)
+				<h1>{ collection.AlbumName }</h1>
 			</header>
-
-			@NavNarrative()
-
-			@AudioPlayer(item_name)
-			<div class={"body-text", strings.Replace(narrative.Episode.TrackName, " ", "-", -1)+"-text"}>
-			@OpenDataStream01()
+			<br/>
+			<div class="body-text">
+				@OpenDataStream02()
+				@NarrativeTable(collection.AlbumName, collection.Narratives)
+				@CloseDataStream01()
 				{ children... }
-			@CloseDataStream01()
 			</div>
 			<footer>
-				<p>{ title }</p>
+				<p>{ collection.AlbumText.TaglineText }</p>
 			</footer>
 		</body>
 	</html>
 }
 
-templ ContentContainer(){
-	
+// TODO: take in artist
+templ AudioPlayer(item_name, artist string) {
+	<div class="audio-player">
+		<audio id="audioPlayer" class={ "ac-" + item_name } controls>
+			<source src={ "/static/audio/mp3/" + artist + "/" + item_name + ".mp3" } type="audio/mpeg"/>
+			Your browser does not support the audio element.
+		</audio>
+	</div>
 }
 
 // allow some pages to alter the destination of the nav bar links, or to add new ones.
 templ NavBar() {
-	<br>
+	<br/>
 	<div class="container nav-container">
 		<!-- Site navigation.  -->
 		<div class="navbar narrative-nav">
@@ -109,15 +119,6 @@ templ Title(title, episode, tagline string) {
 	<h2 class="episode"><b>{ episode }</b></h2>
 	<h3 class="tagline"><small>{ tagline }</small></h3>
 }
-// This template navigates according to the narrative structure.
-// Three links: Previous, Collection, Next.
-templ NavNarrative(){
-	<a class="step-back" href="">Back</a>
-	<a class="home" href="">
-		<img class="portrait" src="/static/home.png" alt="Home"/>
-	</a>
-	<a class="step-forward" href="">Forward</a>
-}
 
 // TODO: when the global timer initiated by audio playback hits timestamp, the color of the text should change
 templ TrackTime(episode, elapsed_time string, timestamp int) {
@@ -126,13 +127,4 @@ templ TrackTime(episode, elapsed_time string, timestamp int) {
 		<br/>
 		<i class="timestamp-episode">{ episode }</i>
 	</div>
-}
-
-templ LinkTableRow(Title, URL string) {
-	<tr>
-		<td>
-			<p>{ Title }</p>
-		</td>
-		<td><a href="{ URL }">「\ ⁂ \」</a></td>
-	</tr>
 }

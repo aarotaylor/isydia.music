@@ -29,7 +29,7 @@ func Open() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"text-header textends\">⌞⁂⌝<br>「⌞ ⁂ ⌝」<br>「⌞-- ⁂ --⌝」<br>「⌞--- ⁂ ---⌝」<br>「⌞---- ⁂ ----⌝」</div>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<br><div class=\"text-header textends\">⌞⁂⌝<br>「⌞ ⁂ ⌝」<br>「⌞-- ⁂ --⌝」<br>「⌞--- ⁂ ---⌝」<br>「⌞---- ⁂ ----⌝」</div><br>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -58,7 +58,7 @@ func Close() templ.Component {
 			templ_7745c5c3_Var2 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "<div class=\"text-header textends\">「⌞---- ⁂ ----⌝」<br>「⌞--- ⁂ ---⌝」<br>「⌞-- ⁂ --⌝」<br>「⌞ ⁂ ⌝」<br>⌞⁂⌝</div>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "<br><div class=\"text-header textends\">「⌞---- ⁂ ----⌝」<br>「⌞--- ⁂ ---⌝」<br>「⌞-- ⁂ --⌝」<br>「⌞ ⁂ ⌝」<br>⌞⁂⌝</div><br>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -87,7 +87,7 @@ func OpenDataStream01() templ.Component {
 			templ_7745c5c3_Var3 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "<div class=\"text-header textends\">⌞⁂⌝<br>.<br>..<br>「...」<br>⌞---- ⁂ ----⌝</div>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "<br><div class=\"text-header textends\">⌞⁂⌝<br>.<br>..<br>「...」<br>⌞---- ⁂ ----⌝</div><br>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -116,7 +116,7 @@ func OpenDataStream02() templ.Component {
 			templ_7745c5c3_Var4 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "<div class=\"text-header textends\">⌞⁂⌝<br>/.\\<br>..<br>「...」<br>⌞---- ⁂ ----⌝</div>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "<div class=\"text-header textends\"><br>⌞⁂⌝<br>/.\\<br>..<br>「...」<br>⌞---- ⁂ ----⌝<br></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -145,7 +145,7 @@ func OpenDataStream03() templ.Component {
 			templ_7745c5c3_Var5 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "<div class=\"text-header textends\">⌞⁂⌝<br>/.\\<br>/ .. \\<br>「...」<br>⌞---- ⁂ ----⌝</div>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "<br><div class=\"text-header textends\">⌞⁂⌝<br>/.\\<br>/ .. \\<br>「...」<br>⌞---- ⁂ ----⌝</div><br>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -174,7 +174,7 @@ func CloseDataStream01() templ.Component {
 			templ_7745c5c3_Var6 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "<div class=\"text-header textends\">⌞---- ⁂ ----⌝<br>...<br>..<br>.<br>⌞⁂⌝</div>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "<br><div class=\"text-header textends\">⌞---- ⁂ ----⌝<br>...<br>..<br>.<br>⌞⁂⌝</div><br>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -203,7 +203,7 @@ func CloseDataStream02() templ.Component {
 			templ_7745c5c3_Var7 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "<div class=\"text-header textends\">⌞---- ⁂ ----⌝<br>「...」<br>..<br>\\./<br>. ⌞⁂⌝</div>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "<br><div class=\"text-header textends\">⌞---- ⁂ ----⌝<br>「...」<br>..<br>\\./<br>. ⌞⁂⌝</div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -232,7 +232,7 @@ func CloseDataStream03() templ.Component {
 			templ_7745c5c3_Var8 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 8, "<div class=\"text-header textends\">「⌞---- ⁂ ----⌝」<br>...<br>\\ .. /<br>\\./<br>⌞⁂⌝</div>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 8, "<br><div class=\"text-header textends\">「⌞---- ⁂ ----⌝」<br>...<br>\\ .. /<br>\\./<br>⌞⁂⌝</div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -261,7 +261,7 @@ func CloseDataStream04() templ.Component {
 			templ_7745c5c3_Var9 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 9, "<div class=\"text-footer textends\">⌞.⌝<br>..<br>...</div><div class=\"text-header textends\">「⌞---- ⁂ ----⌝」<br>...<br>..<br>.<br>⌞⁂⌝</div>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 9, "<br><div class=\"text-footer textends\">⌞.⌝<br>..<br>...</div><div class=\"text-header textends\">「⌞---- ⁂ ----⌝」<br>...<br>..<br>.<br>⌞⁂⌝</div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
