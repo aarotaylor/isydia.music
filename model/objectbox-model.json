@@ -1,0 +1,248 @@
+{
+  "_note1": "KEEP THIS FILE! Check it into a version control system (VCS) like git.",
+  "_note2": "ObjectBox manages crucial IDs for your object model. See docs for details.",
+  "_note3": "If you have VCS merge conflicts, you must resolve them according to ObjectBox docs.",
+  "entities": [
+    {
+      "id": "1:1814140141504068485",
+      "lastPropertyId": "5:2160475630180947997",
+      "name": "StoryText",
+      "properties": [
+        {
+          "id": "1:5655978107166871340",
+          "name": "ID",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:9024729292584953471",
+          "name": "Speaker",
+          "type": 9
+        },
+        {
+          "id": "3:8452417168966450767",
+          "name": "Voice",
+          "type": 9
+        },
+        {
+          "id": "4:5217844859949143155",
+          "name": "Text",
+          "type": 9
+        },
+        {
+          "id": "5:2160475630180947997",
+          "name": "Episode",
+          "type": 6
+        }
+      ]
+    },
+    {
+      "id": "2:4586961912579405826",
+      "lastPropertyId": "3:3966484007674596004",
+      "name": "Anchor",
+      "properties": [
+        {
+          "id": "1:8891005204347398974",
+          "name": "ID",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:7006477997212118184",
+          "name": "Timestamp",
+          "type": 6
+        },
+        {
+          "id": "3:3966484007674596004",
+          "name": "Scene",
+          "type": 9
+        }
+      ],
+      "relations": [
+        {
+          "id": "1:3530418203435632291",
+          "name": "Sequence",
+          "targetId": "1:1814140141504068485"
+        }
+      ]
+    },
+    {
+      "id": "3:5615335901927686573",
+      "lastPropertyId": "7:6824124973129095875",
+      "name": "Narrative",
+      "properties": [
+        {
+          "id": "1:1149464662327904842",
+          "name": "ID",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:6303431632837508150",
+          "name": "Episode_ID",
+          "type": 6,
+          "flags": 8192
+        },
+        {
+          "id": "3:4573912046772310697",
+          "name": "Episode_TrackName",
+          "type": 9
+        },
+        {
+          "id": "4:7239620347682487178",
+          "name": "Episode_EpisodeTitle",
+          "type": 9
+        },
+        {
+          "id": "5:7546618744150916146",
+          "name": "Episode_TaglineText",
+          "type": 9
+        },
+        {
+          "id": "6:8104213377223276082",
+          "name": "Episode_Album",
+          "type": 9
+        },
+        {
+          "id": "7:6824124973129095875",
+          "name": "Episode_EpisodeNumber",
+          "type": 6
+        }
+      ],
+      "relations": [
+        {
+          "id": "2:1143386491329442851",
+          "name": "Collection",
+          "targetId": "2:4586961912579405826"
+        }
+      ]
+    },
+    {
+      "id": "4:3404258675879152203",
+      "lastPropertyId": "6:5418708363462883828",
+      "name": "EpisodeText",
+      "properties": [
+        {
+          "id": "1:4024376418671973041",
+          "name": "ID",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:5451539751248277435",
+          "name": "TrackName",
+          "type": 9
+        },
+        {
+          "id": "3:4571670037239005023",
+          "name": "EpisodeTitle",
+          "type": 9
+        },
+        {
+          "id": "4:1981922122564864851",
+          "name": "TaglineText",
+          "type": 9
+        },
+        {
+          "id": "5:3563195454116364456",
+          "name": "Album",
+          "type": 9
+        },
+        {
+          "id": "6:5418708363462883828",
+          "name": "EpisodeNumber",
+          "type": 6
+        }
+      ]
+    },
+    {
+      "id": "5:2267515890259428646",
+      "lastPropertyId": "2:5439836605470600846",
+      "name": "PageText",
+      "properties": [
+        {
+          "id": "1:1096314172056027161",
+          "name": "ID",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:5439836605470600846",
+          "name": "Text",
+          "type": 9
+        }
+      ]
+    },
+    {
+      "id": "6:89420946822301377",
+      "lastPropertyId": "9:1429483548705920550",
+      "name": "Album",
+      "properties": [
+        {
+          "id": "1:6600938738433553613",
+          "name": "ID",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:940798886032483991",
+          "name": "AlbumName",
+          "type": 9
+        },
+        {
+          "id": "3:9092595314844118948",
+          "name": "ArtistName",
+          "type": 9
+        },
+        {
+          "id": "4:4954325560745591883",
+          "name": "AlbumText_ID",
+          "type": 6,
+          "flags": 8192
+        },
+        {
+          "id": "5:7150278839601110688",
+          "name": "AlbumText_TrackName",
+          "type": 9
+        },
+        {
+          "id": "6:5882673170334047179",
+          "name": "AlbumText_EpisodeTitle",
+          "type": 9
+        },
+        {
+          "id": "7:5967828461654118781",
+          "name": "AlbumText_TaglineText",
+          "type": 9
+        },
+        {
+          "id": "8:4783240662207590228",
+          "name": "AlbumText_Album",
+          "type": 9
+        },
+        {
+          "id": "9:1429483548705920550",
+          "name": "AlbumText_EpisodeNumber",
+          "type": 6
+        }
+      ],
+      "relations": [
+        {
+          "id": "3:8487934535929152655",
+          "name": "Narratives",
+          "targetId": "3:5615335901927686573"
+        }
+      ]
+    }
+  ],
+  "lastEntityId": "6:89420946822301377",
+  "lastIndexId": "",
+  "lastRelationId": "3:8487934535929152655",
+  "modelVersion": 5,
+  "modelVersionParserMinimum": 5,
+  "retiredEntityUids": [],
+  "retiredIndexUids": [],
+  "retiredPropertyUids": [],
+  "retiredRelationUids": [],
+  "version": 1
+}

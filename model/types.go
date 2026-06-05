@@ -2,6 +2,10 @@ package model
 
 import "fmt"
 
+// import "fmt"
+
+//go:generate go run github.com/objectbox/objectbox-go/cmd/objectbox-gogen
+
 // One StoryText block is roughly a paragraph, sometimes more, sometimes less.
 // A slice of StoryText objects form a Narrative.
 type StoryText struct {
@@ -58,4 +62,5 @@ type Album struct {
 	AlbumName  string
 	Narratives []Narrative
 	ArtistName string
+	AlbumText  EpisodeText
 }
