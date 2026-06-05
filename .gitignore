@@ -1,2 +1,11 @@
 /isydia.music.exe
 /static
+
+
+# Ignore audio files
+*.mp3
+*.wav
+*.flac
+*.ogg
+*.aac
+*.m4a
