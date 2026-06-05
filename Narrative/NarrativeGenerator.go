@@ -35,7 +35,7 @@ func readFlags(r *bufio.Reader, name string) []string {
 func main() {
 	r := bufio.NewReader(os.Stdin)
 
-	fmt.Println("=== Structured Story Generator ===\n")
+	fmt.Println("=== Structured Story Generator ===")
 
 	// -------------------------
 	// EPISODE METADATA
@@ -58,7 +58,7 @@ func main() {
 	// -------------------------
 	// STORY LOOP
 	// -------------------------
-	fmt.Println("\nEnter story entries. Type 'done' to finish.\n")
+	fmt.Println("\nEnter story entries. Type 'done' to finish.")
 
 	storyLines := []string{}
 	idCounter := 1
@@ -74,12 +74,13 @@ func main() {
 
 		var id string
 
-		if idInput == "T" {
+		switch idInput {
+		case "T":
 			id = "T"
-		} else if idInput == "" {
+		case "":
 			id = strconv.Itoa(idCounter)
 			idCounter++
-		} else {
+		default:
 			id = idInput
 		}
 
@@ -98,17 +99,11 @@ func main() {
 		line := fmt.Sprintf("%s|%s|%s|%s", id, a, b, c)
 		storyLines = append(storyLines, line)
 
-		fmt.Println("Added:", line, "\n")
+		fmt.Println("Added:", line)
 	}
 
-	// -------------------------
-	// OUTPUT FILE
-	// -------------------------
-	fmt.Print("Output file path: ")
-	outPath, _ := r.ReadString('\n')
-	outPath = strings.TrimSpace(outPath)
-
 	var builder strings.Builder
+	var outPath string
 
 	builder.WriteString("# EPISODE\n")
 	builder.WriteString(fmt.Sprintf("track: %s\n", track))
@@ -117,12 +112,38 @@ func main() {
 	builder.WriteString(fmt.Sprintf("album: %s\n", album))
 	builder.WriteString(fmt.Sprintf("episode_number: %s\n\n", episodeNumber))
 
+	content := []byte(builder.String())
+
+	// SAVE LOOP
+	// -------------------------
+	for {
+
+		fmt.Print("Output file path: ")
+		outPath, _ = r.ReadString('\n')
+		outPath = strings.TrimSpace(outPath)
+
+		if outPath == "" {
+			fmt.Println("Path cannot be empty.")
+			continue
+		}
+
+		err := os.WriteFile(outPath, content, 0644)
+		if err != nil {
+			fmt.Printf("Unable to write file: %v\n", err)
+			fmt.Println("Please enter a valid file path.\n")
+			continue
+		}
+
+		fmt.Printf("\nSaved to %s\n", outPath)
+		break
+	}
 	builder.WriteString("# STORY\n")
 	for _, line := range storyLines {
 		builder.WriteString(line + "\n")
 	}
 	builder.WriteString("# END\n")
 
+	// If the file cannot be found, prompt the user to enter a different path until a valid one is provided.
 	err := os.WriteFile(outPath, []byte(builder.String()), 0644)
 	if err != nil {
 		fmt.Println("Error writing file:", err)

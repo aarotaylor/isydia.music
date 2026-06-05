@@ -1,0 +1,9 @@
+# EPISODE
+track: Syaksa
+title: Syaksa
+tagline: 
+
+# STORY
+
+1 | Narrator | Thought | ...machines that resembled hourglasses laid on their side...
+# END

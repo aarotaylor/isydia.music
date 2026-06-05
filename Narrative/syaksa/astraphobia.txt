@@ -66,9 +66,9 @@ T | 109 | Scene | Crucible
 
 T | 147 | Scene | Divinity
 
-46 | Naomi | Spoken | Why don't sharks have bones?
+46 | Emissary | Spoken | Why don't sharks have bones?
 47 | Kai | Spoken | What?
-48 | Naomi | Spoken | Why don't sharks have bones?
+48 | Emissary | Spoken | Why don't sharks have bones?
 49 | Kai | Spoken | They have cartilage instead, they aren't a bony fish.
 50 | Naomi | Spoken | Right, but why?
 51 | Naomi | Spoken | It's for the same reason entire mountain ranges can be devoid of any skeletal structures as well.
