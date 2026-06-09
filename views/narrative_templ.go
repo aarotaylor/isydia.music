@@ -114,7 +114,7 @@ func TextItem(text, speaker, voice string) templ.Component {
 	})
 }
 
-func NarrativeTable(collection string, narratives []model.Narrative) templ.Component {
+func NarrativeTable(collection string, narratives []*model.Narrative) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
@@ -306,7 +306,7 @@ func NarrativePage(title, item_name, artist string, narrative *model.Narrative) 
 			}
 			ctx = templ.InitializeContext(ctx)
 			for _, anchor := range narrative.Collection {
-				templ_7745c5c3_Err = AnchorItem(anchor).Render(ctx, templ_7745c5c3_Buffer)
+				templ_7745c5c3_Err = AnchorItem(*anchor).Render(ctx, templ_7745c5c3_Buffer)
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}

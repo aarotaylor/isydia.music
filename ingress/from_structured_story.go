@@ -24,8 +24,8 @@ func ParseNarrativeFile(path string, id uint64) (*Shape.Narrative, error) {
 	}
 
 	var inStory bool
-	var story []Shape.Anchor
-	var sequence []Shape.StoryText
+	var story []*Shape.Anchor
+	var sequence []*Shape.StoryText
 	// var anchors []Shape.Anchor
 	// var anchor Shape.Anchor
 	var episode Shape.EpisodeText
@@ -51,7 +51,7 @@ func ParseNarrativeFile(path string, id uint64) (*Shape.Narrative, error) {
 		case strings.HasPrefix(line, "# END"):
 			// on the last line of the narrative file, we need to append the final anchor to the story before exiting the loop, since there won't be another timestamp line to trigger the append.
 			inStory = false
-			story = append(story, Shape.Anchor{
+			story = append(story, &Shape.Anchor{
 				Timestamp: timestamp,
 				Scene:     scene,
 				Sequence:  sequence,
@@ -88,7 +88,7 @@ func ParseNarrativeFile(path string, id uint64) (*Shape.Narrative, error) {
 
 					// -------------
 					if parts[1] != "0" {
-						story = append(story, Shape.Anchor{
+						story = append(story, &Shape.Anchor{
 							Timestamp: timestamp,
 							Scene:     scene,
 							Sequence:  sequence,
@@ -112,7 +112,7 @@ func ParseNarrativeFile(path string, id uint64) (*Shape.Narrative, error) {
 						return nil, err
 					}
 
-					sequence = append(sequence, Shape.StoryText{
+					sequence = append(sequence, &Shape.StoryText{
 						Speaker: strings.TrimSpace(parts[1]),
 						Voice:   strings.TrimSpace(parts[2]),
 						Text:    strings.TrimSpace(parts[3]),

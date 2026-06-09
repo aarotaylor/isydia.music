@@ -22,14 +22,14 @@ type Anchor struct {
 	ID        uint64 `json:"id"`
 	Timestamp int    // remember to convert to multiple of 1000 when writing to narrative file
 	Scene     string // description of this moment in the episode, e.g. "Theory of Mind"
-	Sequence  []StoryText
+	Sequence  []*StoryText
 }
 
 // All text for a given page.
 // Narrative.String() should return the full text of the Narrative, with appropriate formatting.
 type Narrative struct {
-	ID         uint64   `json:"id"`
-	Collection []Anchor // Slice of StoryText blocks, ordered by timestamp
+	ID         uint64    `json:"id"`
+	Collection []*Anchor // Slice of StoryText blocks, ordered by timestamp
 	Episode    EpisodeText
 }
 
@@ -60,7 +60,7 @@ func SecondsToMMSS(seconds int) string {
 type Album struct {
 	ID         uint64 `json:"id"`
 	AlbumName  string
-	Narratives []Narrative
+	Narratives []*Narrative
 	ArtistName string
 	AlbumText  EpisodeText
 }

@@ -6,14 +6,19 @@ import (
 
 	fsr "isydia.music/handlers"
 	ingress "isydia.music/ingress"
+	"isydia.music/model"
+)
+
+const (
+	NarrativeDir = "./Narrative/"
 )
 
 func main() {
 
-	// _, _ = model.InitBedRock() // initialize objectbox; Syaksa stores a deep history in the third ring.
+	third_ring, _ := model.InitBedRock() // initialize objectbox; Syaksa stores a deep history in the third ring.
 
 	// third_ring.
-	// model.SeedBedRock(third_ring) // seed objectbox with Narrative data from the Narrative files. This will be replaced with a more robust seeding process once objectbox is fully implemented.
+	model.SeedBedRock(NarrativeDir, third_ring) // seed objectbox with Narrative data from the Narrative files. This will be replaced with a more robust seeding process once objectbox is fully implemented.
 
 	mux := http.NewServeMux()
 	// ---------------------------

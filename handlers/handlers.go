@@ -63,7 +63,7 @@ func CollectionHandler(w http.ResponseWriter, r *http.Request) {
 	syaksa := &model.Album{
 		AlbumName:  "Syaksa",
 		ArtistName: "Isydia",
-		Narratives: []model.Narrative{*tff, *astraphobia, *atomkraft}, // to be filled in with objectbox read
+		Narratives: []*model.Narrative{tff, astraphobia, atomkraft}, // to be filled in with objectbox read
 		AlbumText: model.EpisodeText{
 			TrackName:     "Syaksa",
 			EpisodeTitle:  "Syaksa",

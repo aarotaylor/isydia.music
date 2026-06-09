@@ -20,7 +20,7 @@ templ TextItem(text, speaker, voice string) {
     <p class={"text-between", speaker+"-"+voice}>{ text }</p>
 }
 
-templ NarrativeTable(collection string, narratives []model.Narrative) {
+templ NarrativeTable(collection string, narratives []*model.Narrative) {
 	<br/>
 	
 	<table class="narrative-table">
@@ -72,7 +72,7 @@ templ AnchorItem(anchor model.Anchor) {
 templ NarrativePage(title, item_name, artist string, narrative *model.Narrative) {
     @NarrativeLayout(title, item_name, narrative, artist) {
         for _, anchor := range narrative.Collection {
-            @AnchorItem(anchor)
+            @AnchorItem(*anchor)
         }
     }
 }
