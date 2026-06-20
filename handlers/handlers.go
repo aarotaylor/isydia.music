@@ -10,8 +10,20 @@ import (
 	"isydia.music/views"
 )
 
-func HomeHandler(w http.ResponseWriter, r *http.Request) {
-	component := views.Home("⌞⁂⌝", "...you are now Lost ✨")
+// Needs a helper function that initializes the narrative texts present in Narrative/ into memory.
+// And/or objectbox
+
+func RiftHandler(w http.ResponseWriter, r *http.Request) {
+	component := views.Rift("⌞⁂⌝", "...you are now Lost ✨")
+
+	if err := component.Render(r.Context(), w); err != nil {
+		http.Error(w, "Render error", http.StatusInternalServerError)
+	}
+
+}
+
+func NexusHandler(w http.ResponseWriter, r *http.Request) {
+	component := views.AspectDisplay("「⌞---- ⁂ ----⌝」", "...pathways converge here...")
 
 	if err := component.Render(r.Context(), w); err != nil {
 		http.Error(w, "Render error", http.StatusInternalServerError)
@@ -59,6 +71,15 @@ func CollectionHandler(w http.ResponseWriter, r *http.Request) {
 		fmt.Println("[[ Error reading Narrative file: ]] \n", err.Error())
 		// component := views.Home("Dimensional Gateway", "...empty space...")
 	}
+
+	ultraluminal, err := ingress.ParseNarrativeFile("./Narrative/ultraluminal/ultraluminal_album.txt", 0) // TODO: WRITE NARRATIVE FILE
+	if err != nil {
+		fmt.Println("[[ Error reading Narrative file: ]] \n", err.Error())
+		// component := views.Home("Dimensional Gateway", "...empty space...")
+	}
+
+	// ---- End Narrative file read into memory ----
+
 	// pull the collection from the Request r, querying objectbox
 	syaksa := &model.Album{
 		AlbumName:  "Syaksa",
@@ -72,10 +93,21 @@ func CollectionHandler(w http.ResponseWriter, r *http.Request) {
 		},
 	}
 
+	// ultraluminal
+	_ = &model.Album{
+		AlbumName:  "Ultraluminal",
+		ArtistName: "Procyon B",
+		Narratives: []*model.Narrative{ultraluminal}, // to be filled in with objectbox read
+		AlbumText: model.EpisodeText{
+			TrackName:    "Ultraluminal",
+			EpisodeTitle: "Ultraluminal",
+		},
+	}
+
 	// cmp := views.CollectionLayout(syaksa)
 
 	//-------------------------------------------------
-	narrative, err := ingress.ParseNarrativeFile("./Narrative/"+collection+".txt", 0) // TODO: WRITE NARRATIVE FILE
+	narrative, err := ingress.ParseNarrativeFile("./Narrative/collections/"+collection+".txt", 0) // TODO: WRITE NARRATIVE FILE
 	if err != nil {
 		fmt.Println("[[ Error reading Narrative file: ]] \n", err.Error())
 
@@ -97,7 +129,7 @@ func CollectionHandler(w http.ResponseWriter, r *http.Request) {
 			http.Error(w, "Render error", http.StatusInternalServerError)
 		}
 		return
-	case "liminal_spaces", "ultraluminal":
+	case "liminal_spaces", "ultraluminal_album":
 
 		fmt.Println("Procyon B - [ " + collection + " ]")
 		cmp := views.NarrativePage(narrative.Episode.EpisodeTitle, item_name, "Procyon B", narrative)
@@ -111,7 +143,7 @@ func CollectionHandler(w http.ResponseWriter, r *http.Request) {
 		fmt.Println("Unknown collection: [ " + collection + " ]")
 		// This type isn't implemented yet. It will wait until objectbox is implemented.
 		// Objectbox will store Albums, which contain Narratives.
-		cmp := views.Home("Dimensional Gateway", "...you have encountered the Absence of something...of somethings... ✨")
+		cmp := views.Home("Dimensional Gateway", "...you have encountered the Absence of something...")
 		if err := cmp.Render(r.Context(), w); err != nil {
 			http.Error(w, "Render error", http.StatusInternalServerError)
 		}

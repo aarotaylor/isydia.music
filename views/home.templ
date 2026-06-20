@@ -7,3 +7,46 @@ templ Home(title string, message string) {
 		</section>
 	}
 }
+
+// Contains my music projects; the different Narrative perspectives. Beginning with
+// Isydia and Procyon B, but by no means limited to musical projects.
+templ AspectDisplay(title string, message string) {
+	@BasicText(title) {
+		<div class="container">
+			@IsydiaContainer()
+			@ProcyonContainer()
+		</div>
+		<section>
+			<h2>{ message }</h2>
+		</section>
+	}
+}
+
+templ Rift(title string, message string) {
+	@Layout(title) {
+		<section>
+			<h2>{ message }</h2>
+		</section>
+	}
+}
+
+// Component for single images
+templ Image(src string, alt string) {
+	<img src={ src } alt={ alt }/>
+}
+
+templ ProcyonContainer() {
+	<div id="procyon-container" class="artist-splash">
+		<a href="/narratives/ultraluminal_album">
+			<img src="/static/img/visage_of_ancients.jpg" alt="Procyon B"/>
+		</a>
+	</div>
+}
+
+templ IsydiaContainer() {
+	<div id="isydia-container" class="artist-splash">
+		<a href="/narratives/syaksa">
+			<img src="/static/img/isydia - lfp.png" alt="Isydia"/>
+		</a>
+	</div>
+}

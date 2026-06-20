@@ -6,7 +6,6 @@ import (
 
 	fsr "isydia.music/handlers"
 	ingress "isydia.music/ingress"
-	"isydia.music/model"
 )
 
 const (
@@ -15,10 +14,10 @@ const (
 
 func main() {
 
-	third_ring, _ := model.InitBedRock() // initialize objectbox; Syaksa stores a deep history in the third ring.
+	// third_ring, _ := model.InitBedRock() // initialize objectbox; Syaksa stores a deep history in the third ring.
 
-	// third_ring.
-	model.SeedBedRock(NarrativeDir, third_ring) // seed objectbox with Narrative data from the Narrative files. This will be replaced with a more robust seeding process once objectbox is fully implemented.
+	// // third_ring.
+	// model.SeedBedRock(NarrativeDir, third_ring) // seed objectbox with Narrative data from the Narrative files. This will be replaced with a more robust seeding process once objectbox is fully implemented.
 
 	mux := http.NewServeMux()
 	// ---------------------------
@@ -44,11 +43,12 @@ func main() {
 	mux.HandleFunc("/narratives/{collection}", fsr.CollectionHandler)
 	mux.HandleFunc("/narratives/{collection}/{episode}", fsr.NarrativeHandler)
 
-	mux.HandleFunc("/updates", fsr.HomeHandler)
-	mux.HandleFunc("/releases", fsr.HomeHandler)
-	mux.HandleFunc("/hub", fsr.HomeHandler)
-	mux.HandleFunc("/credits", fsr.HomeHandler)
-	mux.HandleFunc("/", fsr.HomeHandler)
+	mux.HandleFunc("/updates", fsr.RiftHandler)
+	mux.HandleFunc("/releases", fsr.RiftHandler)
+	mux.HandleFunc("/hub", fsr.RiftHandler)
+	mux.HandleFunc("/credits", fsr.RiftHandler)
+	// mux.HandleFunc("/ingress", fsr.NexusHandler)
+	mux.HandleFunc("/", fsr.NexusHandler)
 
 	log.Println("Server running at http://localhost:8080")
 	if err := http.ListenAndServe(":8080", mux); err != nil {
