@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="/htmx/htmx.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../syaksa.css" />
+</head>
+
+<body class="portal">
+    <!-- <button class="navbutton">Home</button> -->
+    <div class="container nav-container">
+        <!-- Site navigation.  -->
+        <div class="navbar narrative-nav">
+            <a class="navlink" href="../../helix-corp.html">Home</a>
+            <a class="navlink" href="../syaksa.html">Syaksa</a>
+            <a class="navlink">Updates</a>
+            <a class="navlink" href="nav/purpose.html">Purpose</a>
+            <a class="navlink">Downloads</a>
+            <a class="navlink">Links</a>
+        </div>
+    </div>
+    <!-- Audio player -->
+    <audio id="audioPlayer" controls>
+        <source src="..\..\audio\flac\01 Flood Basalt.flac" type="audio/flac">
+        Your browser does not support the audio element.
+    </audio>
+    <h1 class="track-name">Flood Basalt</h1>
+    <h2 class="episode">Geologic Reset</h2>
+    <div class="content-container">
+        <div class="body-text basalt-text">
+
+            ...they come in waves, each subsequent eruption spreading further as a 
+            <br>
+
+            <a class="step-forward" href="02_outer-horizons.html">Alea Iacta Est</a>
+        </div>
+    </div>
+</body>
+<footer>
+    <div>"...and so the floods came..."</div>
+</footer>
+
+</html>
