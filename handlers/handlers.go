@@ -52,39 +52,41 @@ func CollectionHandler(w http.ResponseWriter, r *http.Request) {
 
 	// collection, item_name := pathToNames(r.URL.Path)
 	collection := r.PathValue("collection")
-	item_name := r.PathValue("episode")
+	// item_name := r.PathValue("episode")
 	// component := views.Home("", "...energy pools briefly; multitudes mixing... ✨")
 
 	// ---- these calls directly to the narrative files will be replaced with objectbox reads once objectbox is implemented. ----
-	tff, err := ingress.ParseNarrativeFile("./Narrative/syaksa/the_forbidden_forest.txt", 0) // TODO: WRITE NARRATIVE FILE
-	if err != nil {
-		fmt.Println("[[ Error reading Narrative file: ]] \n", err.Error())
-		// component := views.Home("Dimensional Gateway", "...empty space...")
-	}
-	astraphobia, err := ingress.ParseNarrativeFile("./Narrative/syaksa/astraphobia.txt", 0) // TODO: WRITE NARRATIVE FILE
-	if err != nil {
-		fmt.Println("[[ Error reading Narrative file: ]] \n", err.Error())
-		// component := views.Home("Dimensional Gateway", "...empty space...")
-	}
-	atomkraft, err := ingress.ParseNarrativeFile("./Narrative/syaksa/atomkraft.txt", 0) // TODO: WRITE NARRATIVE FILE
-	if err != nil {
-		fmt.Println("[[ Error reading Narrative file: ]] \n", err.Error())
-		// component := views.Home("Dimensional Gateway", "...empty space...")
-	}
+	// tff, err := ingress.ParseNarrativeFile("./Narrative/syaksa/the_forbidden_forest.txt", 0) // TODO: WRITE NARRATIVE FILE
+	// if err != nil {
+	// 	fmt.Println("[[ Error reading Narrative file: ]] \n", err.Error())
+	// 	// component := views.Home("Dimensional Gateway", "...empty space...")
+	// }
+	// astraphobia, err := ingress.ParseNarrativeFile("./Narrative/syaksa/astraphobia.txt", 0) // TODO: WRITE NARRATIVE FILE
+	// if err != nil {
+	// 	fmt.Println("[[ Error reading Narrative file: ]] \n", err.Error())
+	// 	// component := views.Home("Dimensional Gateway", "...empty space...")
+	// }
+	// atomkraft, err := ingress.ParseNarrativeFile("./Narrative/syaksa/atomkraft.txt", 0) // TODO: WRITE NARRATIVE FILE
+	// if err != nil {
+	// 	fmt.Println("[[ Error reading Narrative file: ]] \n", err.Error())
+	// 	// component := views.Home("Dimensional Gateway", "...empty space...")
+	// }
 
-	ultraluminal, err := ingress.ParseNarrativeFile("./Narrative/ultraluminal/ultraluminal_album.txt", 0) // TODO: WRITE NARRATIVE FILE
-	if err != nil {
-		fmt.Println("[[ Error reading Narrative file: ]] \n", err.Error())
-		// component := views.Home("Dimensional Gateway", "...empty space...")
-	}
+	// ultraluminal, err := ingress.ParseNarrativeFile("./Narrative/ultraluminal/ultraluminal_album.txt", 0) // TODO: WRITE NARRATIVE FILE
+	// if err != nil {
+	// 	fmt.Println("[[ Error reading Narrative file: ]] \n", err.Error())
+	// 	// component := views.Home("Dimensional Gateway", "...empty space...")
+	// }
 
 	// ---- End Narrative file read into memory ----
+
+	albums := ingress.NarrativeIngress()
 
 	// pull the collection from the Request r, querying objectbox
 	syaksa := &model.Album{
 		AlbumName:  "Syaksa",
 		ArtistName: "Isydia",
-		Narratives: []*model.Narrative{tff, astraphobia, atomkraft}, // to be filled in with objectbox read
+		Narratives: albums[0].Narratives, // to be filled in with objectbox read
 		AlbumText: model.EpisodeText{
 			TrackName:     "Syaksa",
 			EpisodeTitle:  "Syaksa",
@@ -94,28 +96,30 @@ func CollectionHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// ultraluminal
-	_ = &model.Album{
-		AlbumName:  "Ultraluminal",
-		ArtistName: "Procyon B",
-		Narratives: []*model.Narrative{ultraluminal}, // to be filled in with objectbox read
-		AlbumText: model.EpisodeText{
-			TrackName:    "Ultraluminal",
-			EpisodeTitle: "Ultraluminal",
-		},
-	}
+	// _ = &model.Album{
+	// 	AlbumName:  "Ultraluminal",
+	// 	ArtistName: "Procyon B",
+	// 	Narratives: []*model.Narrative{ultraluminal}, // to be filled in with objectbox read
+	// 	AlbumText: model.EpisodeText{
+	// 		TrackName:    "Ultraluminal",
+	// 		EpisodeTitle: "Ultraluminal",
+	// 	},
+	// }
+
+	ultraluminal := ingress.UltraluminalTrackList()
 
 	// cmp := views.CollectionLayout(syaksa)
 
 	//-------------------------------------------------
-	narrative, err := ingress.ParseNarrativeFile("./Narrative/collections/"+collection+".txt", 0) // TODO: WRITE NARRATIVE FILE
-	if err != nil {
-		fmt.Println("[[ Error reading Narrative file: ]] \n", err.Error())
+	// narrative, err := ingress.ParseNarrativeFile("./Narrative/collections/"+collection+".txt", 0) // TODO: WRITE NARRATIVE FILE
+	// if err != nil {
+	// 	fmt.Println("[[ Error reading Narrative file: ]] \n", err.Error())
 
-		cmp := views.Home("Dimensional Gateway", "...empty space...")
-		if err := cmp.Render(r.Context(), w); err != nil {
-			http.Error(w, "Render error", http.StatusInternalServerError)
-		}
-	}
+	// 	cmp := views.Home("Dimensional Gateway", "...empty space...")
+	// 	if err := cmp.Render(r.Context(), w); err != nil {
+	// 		http.Error(w, "Render error", http.StatusInternalServerError)
+	// 	}
+	// }
 
 	// in switch statements, inside the switch block, the proper syntax calls for case statements to be at the same indentation level as the switch statement, and the code inside each case to be indented one level further. The break statement is not needed in Go, as it automatically breaks after each case unless you explicitly use fallthrough.
 	// the default statement is used to handle any cases that are not explicitly handled by the case statements. It should be placed at the end of the switch block, and it will execute if none of the case statements match the switch expression.
@@ -132,7 +136,8 @@ func CollectionHandler(w http.ResponseWriter, r *http.Request) {
 	case "liminal_spaces", "ultraluminal_album":
 
 		fmt.Println("Procyon B - [ " + collection + " ]")
-		cmp := views.NarrativePage(narrative.Episode.EpisodeTitle, item_name, "Procyon B", narrative)
+		// cmp := views.NarrativePage(narrative.Episode.EpisodeTitle, item_name, "Procyon B", narrative)
+		cmp := views.CollectionLayout(ultraluminal)
 		if err := cmp.Render(r.Context(), w); err != nil {
 			http.Error(w, "Render error", http.StatusInternalServerError)
 

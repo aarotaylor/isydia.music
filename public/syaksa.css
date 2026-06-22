@@ -414,7 +414,7 @@ table {
     height: 90px;
 }
 
-.home{
+.home {
     background-image: url(/img/thumbnails/Isydia\ -\ Syaksa.jpg);
 }
 
@@ -449,6 +449,7 @@ table {
 .container {
     margin-left: auto;
     margin-right: auto;
+    display: flex;
 }
 
 .artist-splash {
@@ -464,7 +465,6 @@ table {
 }
 
 #procyon-b-container {
-
     float: right;
 }
 
