@@ -28,7 +28,7 @@ templ NarrativeTable(collection string, narratives []*model.Narrative) {
 			<tr>
 				<th>Narrative</th>
 				<th>Title</th>
-				<th>Project</th>
+				<th></th>
 				</tr>
 				
 			</thead>
@@ -95,7 +95,7 @@ templ NarrativeLayout(title string, item_name string, narrative *model.Narrative
 			</header>
 
 			@NavNarrative()
-
+			<br/>
 			@AudioPlayer(item_name, artist)
 			<div class={"body-text", strings.Replace(narrative.Episode.TrackName, " ", "-", -1)+"-text"}>
 			@OpenDataStream01()

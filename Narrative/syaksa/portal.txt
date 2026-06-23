@@ -6,28 +6,28 @@ album: Syaksa
 episode_number: 0
 
 # STORY
-1|Naomi|Voice|"The system seems nominal, no data across the array shows any sign of corruption" said Naomi.
+1|Naomi|Spoken|"The system seems nominal, no data across the array shows any sign of corruption" said Naomi.
 2|Narrator|Thought|Her voice broke the oppressive silence of the ocean floor. Sound traveled much better in water, much further, yet down here the only things audible were the occasional whale call, and geological activity. Darkness swallowed her headlamp, only illuminating the scant flakes of marine snow a few feet in front of her. Looking up, she flipped to infrared and saw dim silhouettes in the distance undulating. Waiting. She felt more comfortable in the dark and tried not to think too hard about the isolating nature of deep ocean trenches.
-3|Kai|Voice|"That's good" Kai replied, validating the sister vault.
+3|Kai|Spoken|"That's good" Kai replied, validating the sister vault.
 4|Narrator|Thought|His diagnostic progress was passing 47%.
 
-5 | Naomi | Voice | "Less for us to do, I'd rather not be down here longer than necessary. Let's collect our samples then be on our way."
+5 | Naomi | Spoken | "Less for us to do, I'd rather not be down here longer than necessary. Let's collect our samples then be on our way."
 6 | Narrator | Narration | A small stream of silvery liquid had collected in a circular depression below the data vaults. It flowed down from the basalt walls of the continental shelf with a powerful slowness that dragged the otherwise motionless water into a weak current.
 
-7 | Naomi | Voice | "Don't you think we should find the source?" Naomi's gaze followed the stream as it disappeared into the dark. "Whoever this belongs to would probably like to know, especially if it could avoid another expedition down here. You don't store something in an ocean trench if you want people knowing about it, and you for sure want the peace of mind that nothing will damage it."
+7 | Naomi | Spoken | "Don't you think we should find the source?" Naomi's gaze followed the stream as it disappeared into the dark. "Whoever this belongs to would probably like to know, especially if it could avoid another expedition down here. You don't store something in an ocean trench if you want people knowing about it, and you for sure want the peace of mind that nothing will damage it."
 
-8 | Kai | Voice | "Our instructions were to verify the integrity of the vault and the data it houses, we've done that."
+8 | Kai | Spoken | "Our instructions were to verify the integrity of the vault and the data it houses, we've done that."
 9 | Narrator | Thought | Kai's diagnostic ticked to 100%
 
-10 | Kai | Voice | "And now we can go home, where the probability of me getting crushed by an ocean's worth of water goes back to what it should be."
+10 | Kai | Spoken | "And now we can go home, where the probability of me getting crushed by an ocean's worth of water goes back to what it should be."
 11 | Narrator | Thought | He initially had expressed excitement at the prospect of making an expedition to the seafloor, hoping to find something of interest to bring back. Something beyond the sand and constant fall of marine snow.
 
 12 | Naomi | Thought | pleasant euphemism, she thought.
 13 | Narrator | Thought | Naomi walked alongside the stream, ascending the few meters to where sand met rock. The break in the cliff face framed her shoulders, just wide enough for her to enter.
 
-14 | Kai | Voice | "Careful over there, I have you on FLIR but you're too far. We should leave and get it analyzed", Kai warned.
+14 | Kai | Spoken | "Careful over there, I have you on FLIR but you're too far. We should leave and get it analyzed", Kai warned.
 
-15 | Naomi | Voice | "I'll be fine, it seems to be denser than water. Anyway, I want to get a sample as close to the source as possible."
+15 | Naomi | Spoken | "I'll be fine, it seems to be denser than water. Anyway, I want to get a sample as close to the source as possible."
 16 | Narrator | Thought | Kai begrudgingly stored a few milliliters in a compartment on the side of his calf, and propelled himself towards the silhouette of Naomi's suit. 
 
 # EPISODE
@@ -42,21 +42,21 @@ episode_number:1
 2 | Naomi | Thought | my eyes could be fatigued, it has been a long day. please don't show any back there...huh, it's a few degrees warmer, this was near an active plate boundary after all.
 3 | Narrator | Thought | The prospect of entering the black-within-black void wasn't enticing, but she knew she would regret leaving this mystery unsolved. The reflective stream had dug a channel in the middle of the corridor, maintaining its width as it exited the cave and flowed down the hill. Naomi had expected the metallic liquid to be mercury, but the preliminary test ruled that out. No matches against any likely substance. She needed more information, but turned her attention as loose sand fell against the exposed basalt.
 
-4 | Naomi | Voice | "See for yourself, we can get through easy. It's a tight fit, but doable." Naomi said, sharing a rendering of the cave.
+4 | Naomi | Spoken | "See for yourself, we can get through easy. It's a tight fit, but doable." Naomi said, sharing a rendering of the cave.
 5 | Narrator | Thought | The entrance was just wider than each of their shoulders, but quickly required them to walk sideways for four and a half meters before emerging in a larger chamber. Two fists worth of clearance with their suits.
 
-6 | Kai | Voice | "'Easy' is doing a lot of heavy lifting there" Kai jabbed.
+6 | Kai | Spoken | "'Easy' is doing a lot of heavy lifting there" Kai jabbed.
 7 | Narrator | Thought | A small recon drone detached from his left arm and glided silently into the cave, disappearing beyond the veil of darkness
 
-8 | Kai | Voice | "The drone can get it. I'd be at the sub already if it wasn't against protocol to wait there on my own."
+8 | Kai | Spoken | "The drone can get it. I'd be at the sub already if it wasn't against protocol to wait there on my own."
 9 | Narrator | Thought | She waited as a second box appeared on her heads up display, the feed from his drone entering the wider chamber. A pulse of red light came from the cave as Kai initiated a scan.
 
 10 | Naomi | Thought | that faint afterglow again...
 11 | Narrator | Thought | It revealed three of the walls past the squeeze were obsidian, with one section on the far wall, labeled as unknown. The scan also revealed a large air pocket above the chamber.
 
-12 | Naomi | Voice | "How do you think I got my rendering? We'd be back at the sub if the trail ended here" Naomi teased.
+12 | Naomi | Spoken | "How do you think I got my rendering? We'd be back at the sub if the trail ended here" Naomi teased.
 
-13 | Naomi | Voice | "If you want any of that obsidian for yourself, you'll need to get it. I won't be sharing mine"
+13 | Naomi | Spoken | "If you want any of that obsidian for yourself, you'll need to get it. I won't be sharing mine"
 14 | Narrator | Thought | Kai too now wrestled with his own inhibitions and curiosities as Naomi moved to enter the cave.
 
 15 | Narrator | Thought | ⌞⁂⌝
@@ -65,23 +65,23 @@ episode_number:1
 16 | Naomi | Thought | not large enough to get stuck, although i shouldn't turn my head too much
 17 | Narrator | Thought | Her mind brought forth stories of people entering caves and never walking out. She shuddered, but trusted her instruments. The walls had gradually come together until they were about a foot and a half apart. Naomi focused on the dim glow of her HUD as she inched closer and closer to the wider chamber. The grating of metal against basalt was unbearable, her toes dragged against the wall in front of her, a near omnipresent scraping with each movement. The passageway opened up, but was a dead end. A dim, warm orange saturated the room, reflecting off the dark glassy walls.
 
-18 | Naomi | Voice | "See that wasn't so bad" Naomi said, relieved to return to the ocean stillness.
+18 | Naomi | Spoken | "See that wasn't so bad" Naomi said, relieved to return to the ocean stillness.
 
-19 | Kai | Voice | "You're lucky there's actually obsidian in here" Kai replied, a hint of shakiness to his breath.
+19 | Kai | Spoken | "You're lucky there's actually obsidian in here" Kai replied, a hint of shakiness to his breath.
 20 | Narrator | Thought | He knelt for loose shards, placing a small one in the compartment on his forearm.
 
-21 | Naomi | Voice | "Don't get ahead of yourself just yet, let's check out the dry chamber first."
+21 | Naomi | Spoken | "Don't get ahead of yourself just yet, let's check out the dry chamber first."
 22 | Narrator | Thought | Naomi motioned to the silvery stream flowing down a portion of the back wall.
 
-23 | Naomi | Voice | "If there's nothing interesting, we can grab some on our way back to the sub, after we get the sample."
+23 | Naomi | Spoken | "If there's nothing interesting, we can grab some on our way back to the sub, after we get the sample."
 24 | Narrator | Thought | Kai nodded in agreement, but something tugged at the back of his mind.
 
-25 | Kai | Voice | "Are caves like this naturally ocurring? You'd think with the pressure down here any air would be forced out. Maybe whoever owns the vaults had this place set up too?"
+25 | Kai | Spoken | "Are caves like this naturally ocurring? You'd think with the pressure down here any air would be forced out. Maybe whoever owns the vaults had this place set up too?"
 
-26 | Naomi | Voice | "Hard to say, but if so, why not tell us that from the jump? Nothing in our briefing gave away that anyone knew what this is"
+26 | Naomi | Spoken | "Hard to say, but if so, why not tell us that from the jump? Nothing in our briefing gave away that anyone knew what this is"
 27 | Narrator | Thought | She pointed back to the flowing mirror on the wall.
 
-28 | Naomi | Voice | "Let's just get the sample and go."
+28 | Naomi | Spoken | "Let's just get the sample and go."
 29 | Narrator | Thought | Kai moved to surface, and Naomi examined her suits reflection briefly before entering the dry chamber above. 
 
 # EPISODE
@@ -93,46 +93,46 @@ episode_number:1
 
 1 | Narrator | Thought | A hot orange flooded the chamber. Lava oozed out of a small fissure on the far wall, and Kai knelt near the active dike with his back toward Naomi, a blue shard in his hand. She kept her gaze on the stream, and followed it to a pair of waist high monoliths flanking an open doorway to the right; the surrounding wall covered in geometric glyphs with water falling from the ceiling.
 
-2 | Naomi | Voice | "Now this is interesting, who could've built these?" Naomi turned to see Kai, holding several obsidian shards, all a deep blue
+2 | Naomi | Spoken | "Now this is interesting, who could've built these?" Naomi turned to see Kai, holding several obsidian shards, all a deep blue
 
 3 | Naomi | Thought | where does that water go? where can it go? nevermind that, what could be inside...
 
-4 | Kai | Voice | "Don't worry, im still under the weight limit. I'm only taking one of these...woah those look like that one monument in the Old Capitol!"
+4 | Kai | Spoken | "Don't worry, im still under the weight limit. I'm only taking one of these...woah those look like that one monument in the Old Capitol!"
 5 | Narrator | Thought | Kai balanced the obsidian as they moved closer to examine the glyphs etched into the constructs.
 
-6 | Naomi | Voice | "I see you've had a change of heart" Naomi chuckled,"They're beautiful. I think I found the source too, look at this one"
+6 | Naomi | Spoken | "I see you've had a change of heart" Naomi chuckled,"They're beautiful. I think I found the source too, look at this one"
 7 | Narrator | Thought | Kai followed the silvery stream to the monolith near Naomi, seeing one of the basaltic pyramid faces with a mirror finish, free of any glyphs.
 
 8 | Narrator | Thought | Naomi removes an empty collection tube from her calf, touching it to the silver triangular surface, partially filling it. She seals the capsule, and places it back in the compartment on her leg before glancing into the dimly lit chamber, her gaze lingering before meeting Kai's, saying nothing.
 
-9 | Kai | Voice | "Oh no, I'm not going in there. We got our sample, let's go"
+9 | Kai | Spoken | "Oh no, I'm not going in there. We got our sample, let's go"
 
-10 | Naomi | Voice | "It's just one room, look."
+10 | Naomi | Spoken | "It's just one room, look."
 11 | Narrator | Thought | A rectangular rendering appeared on Kai's HUD. A mid-sized room with more monoliths flanking the perimeter. Indeed, no other chambers.
 
-12 | Naomi | Voice | "You mean to tell me you stumbled across some strange ruins at the bottom of the ocean, and you don't even want to check them out?"
+12 | Naomi | Spoken | "You mean to tell me you stumbled across some strange ruins at the bottom of the ocean, and you don't even want to check them out?"
 13 | Narrator | Thought | Kai's expression betrayed internal conflict as Naomi entered. 
 
 T | 0 | Scene | Threshold
 
 14 | Narrator | Thought | Warm light from the lava just outside seeped into the chamber, casting long shadows as it dimly illuminated the ancient space. Geometric markings and glyphs were spread all over the interior walls, casting shadows of their own. Naomi moved from monolith to monolith, examining the glyphs imprinted on each. They were evenly spaced around the room, except for the far wall where a stone slab took up the space of two monoliths. Kai went to investigate. As Naomi catalogued the different glyphs on each pyramid, a strange imprint caught her eye...
 
-15 | Naomi | Voice | "Hey I think I found a fossil! It looks like a fern" she exclaimed, moving to take a photo, then scanning the basalt face with her palm.
+15 | Naomi | Spoken | "Hey I think I found a fossil! It looks like a fern" she exclaimed, moving to take a photo, then scanning the basalt face with her palm.
 
 16 | Naomi | Thought | at least this came back with an entry...wow, from the Devonian? how old is this place...
 17 | Narrator | Thought | The central stem with mirrored leaves on either side was only a few inches long, imprinted into the face of the pyramid. Kai came over, tripping over a stone slab that wasn't quite flush with the floor, he looks uneasy.
 
-18 | Kai | Voice | "We should go...I found a head? Or..maybe a helmet in the corner back there. Whatever it is, it's another source too, there's a small pool of the contaminant. I took a sample, lets get out of here."
+18 | Kai | Spoken | "We should go...I found a head? Or..maybe a helmet in the corner back there. Whatever it is, it's another source too, there's a small pool of the contaminant. I took a sample, lets get out of here."
 19 | Naomi | Thought | A small knot formed in Naomi's stomach as she went to investigate.
 
-20 | Naomi | Voice | Who built this place...
+20 | Naomi | Spoken | Who built this place...
 
 T | 26 | Scene | Threshold
 
 21 | Narrator | Thought | They were barely halfway across the room when the chamber became cast in a light teal. The stone console opposite the entrance was the source, shifting glyphs now hovering several inches above the surface, glowing. Crisscrossing lines of teal ran across the ground, each obelisk the vertex to a newly created geometric pattern. Naomi froze, transfixed as the two dominant glyphs over the slab became fixed on two runes: The left had six sides, the right had eight.
 
-22 | Naomi | Voice | "What did you..."
+22 | Naomi | Spoken | "What did you..."
 
-23 | Kai | Voice | "Don't look at me, I never even wanted to come in here"
+23 | Kai | Spoken | "Don't look at me, I never even wanted to come in here"
 24 | Narrator | Thought | Before either of them could react in any meaningful way, the room went dark. The warm glow of lava at the entrance of the room had disappeared, and turning on her suit's lights to illuminate the space, Naomi found the impression in the pyramid face gone, as was the doorway where they entered... 
 # END

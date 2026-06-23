@@ -219,20 +219,28 @@ a {
     transition-duration: 100ms;
     background-color: rgba(0, 0, 0, 0.22);
     padding: 2px;
+    text-align: center;
 }
-
-.nc-penrose {
-    transition-duration: 500ms;
-    background-color: rgba(0, 0, 0, 0.22);
-    padding: 2px;
-}
-
 
 .nav-container:hover {
     background-color: rgba(0, 200, 200, 0.5);
     padding: 2px;
 }
 
+.navbar {
+    /* border: 2px solid teal; */
+    text-align: center;
+}
+
+.navbutton {
+    align-items: flex-start;
+
+}
+.nc-penrose {
+    transition-duration: 500ms;
+    background-color: rgba(0, 0, 0, 0.22);
+    padding: 2px;
+}
 /* navbar shenanigans */
 
 body {
@@ -436,15 +444,7 @@ table {
     display: block;
 }
 
-.navbar {
-    /* border: 2px solid teal; */
-    text-align: center;
-}
 
-.navbutton {
-    align-items: flex-start;
-
-}
 
 .container {
     margin-left: auto;
@@ -591,9 +591,9 @@ table {
 
 .content-container {}
 
-p {
+/* p {
     color: aqua;
-}
+} */
 
 .track-name {
     text-align: center;
@@ -640,10 +640,21 @@ p {
     color: red;
 }
 
+
+/*---------------------- Narrator ----------------------*/
+
+.narrator-thought {
+    color: coral
+}
+
 /*---------------------- Naomi ----------------------*/
 
 .naomi-thought {
     color: teal
+}
+
+.naomi-spoken {
+    color: cyan
 }
 
 /*---------------------- Kai ----------------------*/
@@ -699,7 +710,7 @@ p {
         typing 14s steps(18, end),
 }
 
-.typewriter p {
+.typewriter  {
     overflow: hidden;
     /* Ensures the content is not revealed until the animation */
     border-right: .15em solid cyan;
