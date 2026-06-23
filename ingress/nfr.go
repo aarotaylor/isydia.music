@@ -53,6 +53,11 @@ func NarrativeIngress() []*Shape.Album {
 	}
 }
 
+func LinksIngress() *Shape.ExternalLinkContainer {
+
+	return nil
+}
+
 func UltraluminalTrackList() *Shape.Album {
 
 	var album *Shape.Album
@@ -61,7 +66,7 @@ func UltraluminalTrackList() *Shape.Album {
 		Episode: Shape.EpisodeText{
 			TrackName:     "Focus Alignment",
 			EpisodeTitle:  "",
-			TaglineText:   "",
+			TaglineText:   "Flux Summation",
 			Album:         "Ultraluminal",
 			EpisodeNumber: 0,
 		},
@@ -71,7 +76,7 @@ func UltraluminalTrackList() *Shape.Album {
 		Episode: Shape.EpisodeText{
 			TrackName:     "Hadronic Synthesis",
 			EpisodeTitle:  "",
-			TaglineText:   "",
+			TaglineText:   "E=mc^2 <|> m=E/c^2",
 			Album:         "Ultraluminal",
 			EpisodeNumber: 1,
 		},
@@ -81,7 +86,7 @@ func UltraluminalTrackList() *Shape.Album {
 		Episode: Shape.EpisodeText{
 			TrackName:     "Of Webs and Threads",
 			EpisodeTitle:  "",
-			TaglineText:   "",
+			TaglineText:   "Sensory Spinnerets",
 			Album:         "Ultraluminal",
 			EpisodeNumber: 2,
 		},
@@ -91,7 +96,7 @@ func UltraluminalTrackList() *Shape.Album {
 		Episode: Shape.EpisodeText{
 			TrackName:     "Omicron Velorum",
 			EpisodeTitle:  "",
-			TaglineText:   "",
+			TaglineText:   "Observers",
 			Album:         "Ultraluminal",
 			EpisodeNumber: 3,
 		},
@@ -111,7 +116,7 @@ func UltraluminalTrackList() *Shape.Album {
 		Episode: Shape.EpisodeText{
 			TrackName:     "Dipole Moment",
 			EpisodeTitle:  "",
-			TaglineText:   "",
+			TaglineText:   "Flux Barrier",
 			Album:         "Ultraluminal",
 			EpisodeNumber: 5,
 		},
@@ -121,7 +126,7 @@ func UltraluminalTrackList() *Shape.Album {
 		Episode: Shape.EpisodeText{
 			TrackName:     "Atomkraft",
 			EpisodeTitle:  "",
-			TaglineText:   "",
+			TaglineText:   "Signal Dissemination",
 			Album:         "Ultraluminal",
 			EpisodeNumber: 6,
 		},
@@ -151,7 +156,7 @@ func UltraluminalTrackList() *Shape.Album {
 		Episode: Shape.EpisodeText{
 			TrackName:     "Sea of Exchange",
 			EpisodeTitle:  "",
-			TaglineText:   "",
+			TaglineText:   "Chaos and Stillness",
 			Album:         "Ultraluminal",
 			EpisodeNumber: 9,
 		},
@@ -171,7 +176,7 @@ func UltraluminalTrackList() *Shape.Album {
 		Episode: Shape.EpisodeText{
 			TrackName:     "Arafel",
 			EpisodeTitle:  "",
-			TaglineText:   "",
+			TaglineText:   "Becoming Never Ceases",
 			Album:         "Ultraluminal",
 			EpisodeNumber: 12,
 		},
@@ -181,7 +186,7 @@ func UltraluminalTrackList() *Shape.Album {
 		Episode: Shape.EpisodeText{
 			TrackName:     "Ephemera",
 			EpisodeTitle:  "",
-			TaglineText:   "",
+			TaglineText:   "Projections and Reflections",
 			Album:         "Ultraluminal",
 			EpisodeNumber: 13,
 		},
@@ -191,7 +196,7 @@ func UltraluminalTrackList() *Shape.Album {
 		Episode: Shape.EpisodeText{
 			TrackName:     "Foldspace Router",
 			EpisodeTitle:  "",
-			TaglineText:   "",
+			TaglineText:   "Windows & Visions",
 			Album:         "Ultraluminal",
 			EpisodeNumber: 14,
 		},

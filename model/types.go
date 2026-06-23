@@ -33,6 +33,16 @@ type Narrative struct {
 	Episode    EpisodeText
 }
 
+type ExternalLink struct {
+	ID          uint64 `json:"id"`
+	URL         string
+	Description string
+}
+
+type ExternalLinkContainer struct {
+	Links []*ExternalLink
+}
+
 // Header text for a given episode. Placed at the top of a Narrative
 type EpisodeText struct {
 	ID            uint64 `json:"id"`
