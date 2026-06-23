@@ -1,0 +1,39 @@
+What I'd Build
+
+For a song-based storytelling platform with recurring characters, locations, and events:
+
+type NarrativeSegment struct {
+    ID uint64
+
+    EpisodeID uint64
+
+    TimestampMS int64
+
+    Text string
+}
+
+type LorePage struct {
+    ID uint64
+
+    Type string // character, location, event, item
+
+    Slug string
+    Title string
+
+    Content string
+}
+
+And inside narrative text:
+
+Naomi arrived at [[Observatory]].
+
+The [[Great Collapse]] had left scars on the city.
+
+Then at render time:
+
+Parse [[...]]
+Resolve matching LorePage
+Generate links
+Optionally show hover cards/previews
+
+This gives you a storytelling experience that feels like a blend of a novel, a wiki, and a visual soundtrack experience, while keeping the narrative files simple enough that authors can edit them by hand.
