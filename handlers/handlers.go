@@ -6,6 +6,7 @@ import (
 	"strings"
 
 	ingress "isydia.music/ingress"
+	narrative "isydia.music/ingress"
 	"isydia.music/model"
 	"isydia.music/views"
 )
@@ -48,64 +49,52 @@ func PurposeHandler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+func IsydiaHandler(w http.ResponseWriter, r *http.Request) {
+
+	component := views.Home("__", "...")
+
+	syaksa := narrative.GetSyaksa()
+	makers := narrative.GetMakers_I()
+	scree := narrative.GetScree()
+
+	discog := []*model.Album{syaksa, makers, scree}
+
+	component = views.IsydiaLayout(discog) // for now, just render the first StoryText block of the first Anchor in the Narrative. To be replaced with a more robust rendering of the full Narrative.
+	if err := component.Render(r.Context(), w); err != nil {
+		http.Error(w, "Render error", http.StatusInternalServerError)
+	}
+}
+
+func ProcyonHandler(w http.ResponseWriter, r *http.Request) {
+
+	component := views.Home("__", "...")
+	// var discog []*model.Album{}
+
+	ultraluminal := narrative.UltraluminalTrackList()
+	mm := narrative.GetMM()
+	liminal_spaces := narrative.GetLiminalSpaces()
+
+	discog := []*model.Album{ultraluminal, mm, liminal_spaces}
+
+	component = views.ProcyonLayout(discog) // for now, just render the first StoryText block of the first Anchor in the Narrative. To be replaced with a more robust rendering of the full Narrative.
+	if err := component.Render(r.Context(), w); err != nil {
+		http.Error(w, "Render error", http.StatusInternalServerError)
+	}
+}
+
 func CollectionHandler(w http.ResponseWriter, r *http.Request) {
 
 	// collection, item_name := pathToNames(r.URL.Path)
 	collection := r.PathValue("collection")
-	// item_name := r.PathValue("episode")
-	// component := views.Home("", "...energy pools briefly; multitudes mixing... ✨")
 
-	// ---- these calls directly to the narrative files will be replaced with objectbox reads once objectbox is implemented. ----
-	// tff, err := ingress.ParseNarrativeFile("./Narrative/syaksa/the_forbidden_forest.txt", 0) // TODO: WRITE NARRATIVE FILE
-	// if err != nil {
-	// 	fmt.Println("[[ Error reading Narrative file: ]] \n", err.Error())
-	// 	// component := views.Home("Dimensional Gateway", "...empty space...")
-	// }
-	// astraphobia, err := ingress.ParseNarrativeFile("./Narrative/syaksa/astraphobia.txt", 0) // TODO: WRITE NARRATIVE FILE
-	// if err != nil {
-	// 	fmt.Println("[[ Error reading Narrative file: ]] \n", err.Error())
-	// 	// component := views.Home("Dimensional Gateway", "...empty space...")
-	// }
-	// atomkraft, err := ingress.ParseNarrativeFile("./Narrative/syaksa/atomkraft.txt", 0) // TODO: WRITE NARRATIVE FILE
-	// if err != nil {
-	// 	fmt.Println("[[ Error reading Narrative file: ]] \n", err.Error())
-	// 	// component := views.Home("Dimensional Gateway", "...empty space...")
-	// }
+	syaksa := ingress.GetSyaksa()
 
-	// ultraluminal, err := ingress.ParseNarrativeFile("./Narrative/ultraluminal/ultraluminal_album.txt", 0) // TODO: WRITE NARRATIVE FILE
-	// if err != nil {
-	// 	fmt.Println("[[ Error reading Narrative file: ]] \n", err.Error())
-	// 	// component := views.Home("Dimensional Gateway", "...empty space...")
-	// }
-
+	makers := ingress.GetMakers_I()
+	citadel := ingress.GetCitadel()
+	mm := ingress.GetMM()
+	scree := ingress.GetScree()
+	liminal_spaces := ingress.GetLiminalSpaces()
 	// ---- End Narrative file read into memory ----
-
-	albums := ingress.NarrativeIngress()
-
-	// pull the collection from the Request r, querying objectbox
-	syaksa := &model.Album{
-		AlbumName:  "Syaksa",
-		ArtistName: "Isydia",
-		Narratives: albums[0].Narratives, // to be filled in with objectbox read
-		AlbumText: model.EpisodeText{
-			TrackName:     "Syaksa",
-			EpisodeTitle:  "Syaksa",
-			TaglineText:   "A Cosmic Bulwark",
-			EpisodeNumber: 8,
-		},
-	}
-
-	// ultraluminal
-	// _ = &model.Album{
-	// 	AlbumName:  "Ultraluminal",
-	// 	ArtistName: "Procyon B",
-	// 	Narratives: []*model.Narrative{ultraluminal}, // to be filled in with objectbox read
-	// 	AlbumText: model.EpisodeText{
-	// 		TrackName:    "Ultraluminal",
-	// 		EpisodeTitle: "Ultraluminal",
-	// 	},
-	// }
-
 	ultraluminal := ingress.UltraluminalTrackList()
 
 	// cmp := views.CollectionLayout(syaksa)
@@ -125,7 +114,7 @@ func CollectionHandler(w http.ResponseWriter, r *http.Request) {
 	// the default statement is used to handle any cases that are not explicitly handled by the case statements. It should be placed at the end of the switch block, and it will execute if none of the case statements match the switch expression.
 
 	switch collection {
-	case "syaksa", "manifold_existence":
+	case "syaksa":
 		fmt.Println("Isydia - [ " + collection + " ]")
 		// cmp := views.NarrativePage(narrative.Episode.EpisodeTitle, item_name, "Isydia", narrative)
 		cmp := views.CollectionLayout(syaksa)
@@ -133,11 +122,57 @@ func CollectionHandler(w http.ResponseWriter, r *http.Request) {
 			http.Error(w, "Render error", http.StatusInternalServerError)
 		}
 		return
-	case "liminal_spaces", "ultraluminal_album":
+	case "makers_i":
+		fmt.Println("Isydia - [ " + collection + " ]")
+		// cmp := views.NarrativePage(narrative.Episode.EpisodeTitle, item_name, "Isydia", narrative)
+		cmp := views.CollectionLayout(makers)
+		if err := cmp.Render(r.Context(), w); err != nil {
+			http.Error(w, "Render error", http.StatusInternalServerError)
+		}
+		return
+	case "scree":
+		fmt.Println("Isydia - [ " + collection + " ]")
+		// cmp := views.NarrativePage(narrative.Episode.EpisodeTitle, item_name, "Isydia", narrative)
+		cmp := views.CollectionLayout(scree)
+		if err := cmp.Render(r.Context(), w); err != nil {
+			http.Error(w, "Render error", http.StatusInternalServerError)
+		}
+		return
+	case "liminal_spaces":
+
+		fmt.Println("Procyon B - [ " + collection + " ]")
+		// cmp := views.NarrativePage(narrative.Episode.EpisodeTitle, item_name, "Procyon B", narrative)
+		cmp := views.CollectionLayout(liminal_spaces)
+		if err := cmp.Render(r.Context(), w); err != nil {
+			http.Error(w, "Render error", http.StatusInternalServerError)
+
+		}
+		return
+	case "ultraluminal":
 
 		fmt.Println("Procyon B - [ " + collection + " ]")
 		// cmp := views.NarrativePage(narrative.Episode.EpisodeTitle, item_name, "Procyon B", narrative)
 		cmp := views.CollectionLayout(ultraluminal)
+		if err := cmp.Render(r.Context(), w); err != nil {
+			http.Error(w, "Render error", http.StatusInternalServerError)
+
+		}
+		return
+	case "citadel":
+
+		fmt.Println("Procyon B - [ " + collection + " ]")
+		// cmp := views.NarrativePage(narrative.Episode.EpisodeTitle, item_name, "Procyon B", narrative)
+		cmp := views.CollectionLayout(citadel)
+		if err := cmp.Render(r.Context(), w); err != nil {
+			http.Error(w, "Render error", http.StatusInternalServerError)
+
+		}
+		return
+	case "midnight_metropolis":
+
+		fmt.Println("Procyon B - [ " + collection + " ]")
+		// cmp := views.NarrativePage(narrative.Episode.EpisodeTitle, item_name, "Procyon B", narrative)
+		cmp := views.CollectionLayout(mm)
 		if err := cmp.Render(r.Context(), w); err != nil {
 			http.Error(w, "Render error", http.StatusInternalServerError)
 
@@ -226,7 +261,7 @@ func NarrativeHandler(w http.ResponseWriter, r *http.Request) {
 	default:
 		// This type isn't implemented yet. It will wait until objectbox is implemented.
 		// Objectbox will store Albums, which contain Narratives.
-		component := views.Home("Dimensional Gateway", "...you have encountered the Absence of something...of somethings... ✨")
+		component := views.Home("Dimensional Gateway", "...you have encountered the Absence of something... ✨")
 		if err := component.Render(r.Context(), w); err != nil {
 			http.Error(w, "Render error", http.StatusInternalServerError)
 		}

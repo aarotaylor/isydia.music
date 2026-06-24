@@ -458,11 +458,28 @@ table {
     margin: auto;
 }
 
+.isydia {
+    /* contains background and styling for Isydia pages */
+    background-image: url("/static/img/Isydia.jpg");
+}
+
 #isydia-container {
     float: left;
     font-family: fantasy;
     text-decoration: wavy;
 }
+
+
+.rift {
+    background-position: 25% 20%;
+}
+
+.procyon_b {
+    /* contains background and styling for Procyon B pages */
+    background-image: url("/static/img/ultraluminalcontrast.jpg");
+    background-position: 25% 80%;   /* left-center */
+}
+
 
 #procyon-b-container {
     float: right;
@@ -490,6 +507,18 @@ table {
 #syaksa-container {
     width: 15%;
     height: 200px;
+}
+
+.liminal_spaces{
+    background-image: url(/img/liminal_spaces.jpg);
+    background-size: cover;
+
+}
+
+.midnight_metropolis{
+    background-image: url(/img/infiltration.jpg);
+    background-size: cover;
+
 }
 
 .flood-basalt {

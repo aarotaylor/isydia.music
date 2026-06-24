@@ -279,7 +279,7 @@ func ProcyonContainer() templ.Component {
 			templ_7745c5c3_Var13 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 11, "<div id=\"procyon-container\" class=\"artist-splash\"><a href=\"/narratives/ultraluminal_album\"><img src=\"/static/img/visage_of_ancients.jpg\" alt=\"Procyon B\"></a></div>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 11, "<div id=\"procyon-container\" class=\"artist-splash\"><a href=\"/procyon_b\"><img src=\"/static/img/visage_of_ancients.jpg\" alt=\"Procyon B\"></a></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -308,7 +308,7 @@ func IsydiaContainer() templ.Component {
 			templ_7745c5c3_Var14 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 12, "<div id=\"isydia-container\" class=\"artist-splash\"><a href=\"/narratives/syaksa\"><img src=\"/static/img/isydia - lfp.png\" alt=\"Isydia\"></a></div>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 12, "<div id=\"isydia-container\" class=\"artist-splash\"><a href=\"/isydia\"><img src=\"/static/img/isydia - lfp.png\" alt=\"Isydia\"></a></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

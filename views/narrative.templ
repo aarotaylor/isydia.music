@@ -23,7 +23,8 @@ templ TextItem(text, speaker, voice string) {
 templ NarrativeTable(collection string, narratives []*model.Narrative) {
 	<br/>
 	
-	<table class="narrative-table">
+	<p><a href={"/narratives/" + lowerAndUnder(collection)}>{collection}</a></p>
+	<table class="narrative-table">	
 			<thead class="narrative-entry">
 			<tr>
 				<th>Narrative</th>

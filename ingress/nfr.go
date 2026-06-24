@@ -13,15 +13,34 @@ const (
 // This module will read in the Narrative file directory, populating objectbox, and contains
 // other functions and methods that will be related to reading narrative files
 // toggle the preference for file vs objectbox copy;
-func NarrativeIngress() []*Shape.Album {
+func GetSyaksa() *Shape.Album {
 
 	var syaksa []*Shape.Narrative
+	album := &Shape.Album{
+		ID:         0,
+		AlbumName:  "Syaksa",
+		ArtistName: "Isydia",
+		AlbumText: Shape.EpisodeText{
+			TaglineText: "A Cosmic Bulwark",
+		},
+	}
 	// ---- these calls directly to the narrative files will be replaced with objectbox reads once objectbox is implemented. ----
 
 	portal, err := ParseNarrativeFile("./Narrative/syaksa/portal.txt", 0) // TODO: WRITE NARRATIVE FILE
 	if err != nil {
 		fmt.Println("[[ Error reading Narrative file: ]] \n", err.Error())
 		// component := views.Home("Dimensional Gateway", "...empty space...")
+	}
+
+	penrose_engine := &Shape.Narrative{
+		ID: 2,
+		Episode: Shape.EpisodeText{
+			TrackName:     "Penrose Engine",
+			EpisodeTitle:  "Displacement",
+			TaglineText:   "",
+			Album:         "Syaksa",
+			EpisodeNumber: 2,
+		},
 	}
 
 	tff, err := ParseNarrativeFile("./Narrative/syaksa/the_forbidden_forest.txt", 0) // TODO: WRITE NARRATIVE FILE
@@ -40,22 +59,208 @@ func NarrativeIngress() []*Shape.Album {
 		// component := views.Home("Dimensional Gateway", "...empty space...")
 	}
 
-	syaksa = append(syaksa, portal, tff, astraphobia, atomkraft)
-	// ---- End Narrative file read into memory ----
-
-	return []*Shape.Album{
-		{
-			ID:         0,
-			AlbumName:  "Syaksa",
-			Narratives: syaksa,
-			ArtistName: "Isydia",
+	bulwark := &Shape.Narrative{
+		ID: 2,
+		Episode: Shape.EpisodeText{
+			TrackName:     "Bulwark",
+			EpisodeTitle:  "Cycles of Cycles...",
+			TaglineText:   "",
+			Album:         "Syaksa",
+			EpisodeNumber: 6,
 		},
 	}
+
+	proton_decay := &Shape.Narrative{
+		ID: 2,
+		Episode: Shape.EpisodeText{
+			TrackName:     "Proton Decay",
+			EpisodeTitle:  "Oblivion..",
+			TaglineText:   "",
+			Album:         "Syaksa",
+			EpisodeNumber: 7,
+		},
+	}
+
+	syaksa = append(syaksa, portal, penrose_engine, tff, atomkraft, astraphobia, bulwark, proton_decay)
+	// ---- End Narrative file read into memory ----
+
+	album.Narratives = syaksa
+	return album
 }
 
 func LinksIngress() *Shape.ExternalLinkContainer {
 
 	return nil
+}
+
+func GetScree() *Shape.Album {
+	var album *Shape.Album
+
+	is := &Shape.Narrative{
+		Episode: Shape.EpisodeText{
+			TrackName:     "Induction Shadow",
+			EpisodeTitle:  "",
+			TaglineText:   "",
+			Album:         "Scree",
+			EpisodeNumber: 0,
+		},
+	}
+
+	album = &Shape.Album{
+		AlbumName:  "Scree",
+		ArtistName: "Isydia",
+		Narratives: []*Shape.Narrative{is},
+	}
+
+	return album
+}
+
+func GetMakers_I() *Shape.Album {
+	var album *Shape.Album
+
+	manifolds := &Shape.Narrative{
+		Episode: Shape.EpisodeText{
+			TrackName:     "Manifold Existence",
+			EpisodeTitle:  "",
+			TaglineText:   "",
+			Album:         "Makers I",
+			EpisodeNumber: 0,
+		},
+	}
+
+	flood_basalt := &Shape.Narrative{
+		Episode: Shape.EpisodeText{
+			TrackName:     "Flood Basalt",
+			EpisodeTitle:  "",
+			TaglineText:   "",
+			Album:         "Makers I",
+			EpisodeNumber: 1,
+		},
+	}
+
+	album = &Shape.Album{
+		AlbumName:  "Makers I",
+		ArtistName: "Isydia",
+		Narratives: []*Shape.Narrative{manifolds, flood_basalt},
+	}
+
+	return album
+}
+
+func GetLiminalSpaces() *Shape.Album {
+	var album *Shape.Album
+
+	mind_the_rift := &Shape.Narrative{
+		Episode: Shape.EpisodeText{
+			TrackName:     "Mind the Rift",
+			EpisodeTitle:  "",
+			TaglineText:   "",
+			Album:         "Liminal Spaces",
+			EpisodeNumber: 0,
+		},
+	}
+
+	restitution := &Shape.Narrative{
+		Episode: Shape.EpisodeText{
+			TrackName:     "Restitution",
+			EpisodeTitle:  "",
+			TaglineText:   "",
+			Album:         "Liminal Spaces",
+			EpisodeNumber: 1,
+		},
+	}
+
+	nn := &Shape.Narrative{
+		Episode: Shape.EpisodeText{
+			TrackName:     "Nightly Netrunning",
+			EpisodeTitle:  "",
+			TaglineText:   "",
+			Album:         "Liminal Spaces",
+			EpisodeNumber: 2,
+		},
+	}
+
+	album = &Shape.Album{
+		AlbumName:  "Liminal Spaces",
+		ArtistName: "Procyon B",
+		Narratives: []*Shape.Narrative{mind_the_rift, restitution, nn},
+	}
+
+	return album
+}
+
+func GetCitadel() *Shape.Album {
+	var album *Shape.Album
+
+	citadel := &Shape.Narrative{
+		Episode: Shape.EpisodeText{
+			TrackName:     "Citadel",
+			EpisodeTitle:  "",
+			TaglineText:   "",
+			Album:         "Citadel",
+			EpisodeNumber: 0,
+		},
+	}
+
+	outskirts := &Shape.Narrative{
+		Episode: Shape.EpisodeText{
+			TrackName:     "Outskirts",
+			EpisodeTitle:  "",
+			TaglineText:   "",
+			Album:         "Citadel",
+			EpisodeNumber: 1,
+		},
+	}
+
+	cc := &Shape.Narrative{
+		Episode: Shape.EpisodeText{
+			TrackName:     "Corporate Couriers",
+			EpisodeTitle:  "",
+			TaglineText:   "",
+			Album:         "Citadel",
+			EpisodeNumber: 2,
+		},
+	}
+
+	album = &Shape.Album{
+		AlbumName:  "Citadel",
+		ArtistName: "Procyon B",
+		Narratives: []*Shape.Narrative{citadel, outskirts, cc},
+	}
+
+	return album
+}
+
+func GetMM() *Shape.Album {
+	var album *Shape.Album
+
+	infiltration := &Shape.Narrative{
+		Episode: Shape.EpisodeText{
+			TrackName:     "Infiltration",
+			EpisodeTitle:  "",
+			TaglineText:   "",
+			Album:         "Midnight Metropolis",
+			EpisodeNumber: 0,
+		},
+	}
+
+	mm := &Shape.Narrative{
+		Episode: Shape.EpisodeText{
+			TrackName:     "Midnight Metropolis",
+			EpisodeTitle:  "",
+			TaglineText:   "",
+			Album:         "Midnight Metropolis",
+			EpisodeNumber: 1,
+		},
+	}
+
+	album = &Shape.Album{
+		AlbumName:  "Midnight Metropolis",
+		ArtistName: "Procyon B",
+		Narratives: []*Shape.Narrative{infiltration, mm},
+	}
+
+	return album
 }
 
 func UltraluminalTrackList() *Shape.Album {

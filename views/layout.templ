@@ -1,6 +1,7 @@
 package views
 
 import "isydia.music/model"
+import "strings"
 
 // This module contains components common to most pages.
 /*
@@ -21,12 +22,12 @@ templ Layout(title string) {
 			<link rel="stylesheet" href="/static/syaksa.css"/>
 		</head>
 		@NavBar()
-		<body>
+		<body class="procyon_b rift">
 			<header></header>
 			<br/>
 			<div class="body-text">
 				@OpenDataStream03()
-				<h1>...stepping through a <a>Rift</a> in space...</h1>
+				<h1>...you've found a <a>Rift</a> in space...</h1>
 				{ children... }
 				@CloseDataStream03()
 			</div>
@@ -59,6 +60,69 @@ templ BasicText(text string) {
 	</html>
 }
 
+templ IsydiaLayout(collections []*model.Album) {
+	<!DOCTYPE html>
+	<html lang="en">
+		<head>
+			<meta charset="UTF-8"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+			<title>{ "Isydia" }</title>
+			<link rel="stylesheet" href="/static/syaksa.css"/>
+		</head>
+		<body class={"collection-page isydia"}>
+			@NavBar()
+			<header>
+				<h1><a href="/isydia">{ "Isydia" }</a></h1>
+			</header>
+			<br/>
+			<div class="body-text">
+				@OpenDataStream02()
+
+				for _, collection := range collections {
+					@NarrativeTable(collection.AlbumName, collection.Narratives)
+				}
+
+				@CloseDataStream01()
+				{ children... }
+			</div>
+			<footer>
+			</footer>
+		</body>
+	</html>
+}
+
+templ ProcyonLayout(collections []*model.Album) {
+	<!DOCTYPE html>
+	<html lang="en">
+		<head>
+			<meta charset="UTF-8"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+			<title>{ "Procyon B" }</title>
+			<link rel="stylesheet" href="/static/syaksa.css"/>
+		</head>
+		<body class={"collection-page procyon_b"}>
+			@NavBar()
+			<header>
+				<h1><a href="/procyon_b">{ "Procyon B" }</a></h1>
+			</header>
+			<br/>
+			<div class="body-text">
+				@OpenDataStream02()
+
+				for _, collection := range collections {
+					@NarrativeTable(collection.AlbumName, collection.Narratives)
+				}
+
+				@CloseDataStream01()
+				{ children... }
+			</div>
+			<footer>
+			</footer>
+		</body>
+	</html>
+}
+
+
 templ CollectionLayout(collection *model.Album) {
 	<!DOCTYPE html>
 	<html lang="en">
@@ -68,21 +132,22 @@ templ CollectionLayout(collection *model.Album) {
 			<title>{ collection.AlbumText.EpisodeTitle }</title>
 			<link rel="stylesheet" href="/static/syaksa.css"/>
 		</head>
-		<body class="collection-page">
+		<body class={lowerAndUnder(collection.AlbumName)+ " collection-page " + strings.Replace(strings.ToLower(collection.ArtistName), " ", "_", -1)}>
 			@NavBar()
 			<header>
-				<h1>{ collection.ArtistName }</h1>
+				<h1><a href={"/"+lowerAndUnder(collection.ArtistName)}>{ collection.ArtistName }</a></h1>
 			</header>
 			<br/>
 			<div class="body-text">
 				@OpenDataStream02()
 				<h2>{ collection.AlbumName }</h2>
 				@NarrativeTable(collection.AlbumName, collection.Narratives)
+
+				<p>{ collection.AlbumText.TaglineText }</p>
 				@CloseDataStream01()
 				{ children... }
 			</div>
 			<footer>
-				<p>{ collection.AlbumText.TaglineText }</p>
 			</footer>
 		</body>
 	</html>

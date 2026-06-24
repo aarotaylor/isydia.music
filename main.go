@@ -47,6 +47,9 @@ func main() {
 	mux.HandleFunc("/releases", fsr.RiftHandler)
 	mux.HandleFunc("/hub", fsr.RiftHandler)
 	mux.HandleFunc("/credits", fsr.RiftHandler)
+
+	mux.HandleFunc("/isydia", fsr.IsydiaHandler)
+	mux.HandleFunc("/procyon_b", fsr.ProcyonHandler)
 	// mux.HandleFunc("/ingress", fsr.NexusHandler)
 	mux.HandleFunc("/", fsr.NexusHandler)
 
