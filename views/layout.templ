@@ -1,7 +1,9 @@
 package views
 
-import "isydia.music/model"
-import "strings"
+import( 
+	"isydia.music/model"
+ 	"strings"
+)
 
 // This module contains components common to most pages.
 /*
@@ -191,4 +193,53 @@ templ TrackTime(episode, elapsed_time string, timestamp int) {
 		<br/>
 		<i class="timestamp-episode">{ episode }</i>
 	</div>
+}
+
+
+
+
+templ AssetTable(attributes []*model.Asset) {
+	<table class="attribute-table">
+		<tr>
+			<th>Attribute</th>
+			<th>Description</th>
+		</tr>
+		for _, attr := range attributes {
+			<tr>
+				//<td><img src={attr.Filename}></td>
+				<td>{ attr.Creator }</td>
+				<td>{ attr.Notes }</td>
+				<td><a href={ attr.SourceURL } target="_blank">Source</a></td>
+			</tr>
+		}
+	</table>
+}
+
+templ AssetLayout(collections []*model.Asset) {
+	<!DOCTYPE html>
+	<html lang="en">
+		<head>
+			<meta charset="UTF-8"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+			<title>{ "Procyon B" }</title>
+			<link rel="stylesheet" href="/static/syaksa.css"/>
+		</head>
+		<body class={"collection-page procyon_b"}>
+			@NavBar()
+			<header>
+				<h1>Credits</h1>
+			</header>
+			<br/>
+			<div class="body-text">
+				@OpenDataStream02()
+
+					@AssetTable(collections)
+
+				@CloseDataStream01()
+				{ children... }
+			</div>
+			<footer>
+			</footer>
+		</body>
+	</html>
 }

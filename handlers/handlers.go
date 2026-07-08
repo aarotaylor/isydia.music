@@ -31,6 +31,38 @@ func NexusHandler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+// retrieves all attributes from all narratives.
+func AttributeHandler(w http.ResponseWriter, r *http.Request) {
+	//	component := views.AspectDisplay("「⌞---- ⁂ ----⌝」", "...pathways converge here...")
+
+	syaksa := ingress.GetSyaksa()
+
+	makers := ingress.GetMakers_I()
+	citadel := ingress.GetCitadel()
+	mm := ingress.GetMM()
+	scree := ingress.GetScree()
+	liminal_spaces := ingress.GetLiminalSpaces()
+	// ---- End Narrative file read into memory ----
+	ultraluminal := ingress.UltraluminalTrackList()
+
+	all_albums := []*model.Album{syaksa, makers, citadel, mm, scree, liminal_spaces, ultraluminal}
+	attrs := []*model.Asset{}
+
+	// for each narrative, call the GetAssets() method to retrieve the assets associated with it, and print them to the console.
+	for _, narrative := range all_albums {
+		assets := narrative.GetAssets()
+		attrs = append(attrs, assets...)
+	}
+
+	// send this list of attrs to an AttributeDisplay component, which will render them in a grid layout.
+
+	attr_component := views.AssetLayout(attrs)
+
+	if err := attr_component.Render(r.Context(), w); err != nil {
+		http.Error(w, "Render error", http.StatusInternalServerError)
+	}
+}
+
 func PurposeHandler(w http.ResponseWriter, r *http.Request) {
 
 	component := views.Home("Dimensional Gateway", "...empty space...")

@@ -74,3 +74,22 @@ type Album struct {
 	ArtistName string
 	AlbumText  EpisodeText
 }
+
+type AssetType string
+
+const (
+	AssetTypeImage AssetType = "image"
+	AssetTypeVideo AssetType = "video"
+	AssetTypeAudio AssetType = "audio"
+)
+
+type Asset struct {
+	ID         uint64    `json:"id"`
+	Type       AssetType `json:"type"`
+	Filename   string    `json:"filename"`
+	Notes      string    `json:"notes"`
+	Creator    string    `json:"creator"`
+	License    string    `json:"license"`
+	LicenseURL string    `json:"license_url"`
+	SourceURL  string    `json:"source_url"`
+}
