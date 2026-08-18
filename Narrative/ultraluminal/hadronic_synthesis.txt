@@ -1,0 +1,6 @@
+# EPISODE
+track: Hadronic Synthesis
+title: 
+tagline: "To make an apple pie from scratch..."
+album: Ultraluminal
+episode_number: 8

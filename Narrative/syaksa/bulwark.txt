@@ -1,0 +1,6 @@
+# EPISODE
+track: Bulwark
+title: 
+tagline: In defiance of Oblivion.
+album: Syaksa
+episode_number: 6

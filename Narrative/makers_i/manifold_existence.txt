@@ -1,0 +1,6 @@
+# EPISODE
+track: Manifold Existence
+title:
+tagline: 
+album: Makers I
+episode_number: 2

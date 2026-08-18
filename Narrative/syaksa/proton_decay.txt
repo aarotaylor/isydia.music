@@ -1,0 +1,6 @@
+# EPISODE
+track: Proton Decay
+title: 
+tagline: Oblivion.
+album: Syaksa
+episode_number: 7

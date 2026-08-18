@@ -1,0 +1,6 @@
+# EPISODE
+track: Midnight Metropolis
+title:
+tagline: 
+album: Midnight Metropolis
+episode_number: 2

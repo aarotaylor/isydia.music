@@ -1,0 +1,6 @@
+# EPISODE
+track: Induction Shadow
+title:
+tagline: 
+album: Scree
+episode_number: 1

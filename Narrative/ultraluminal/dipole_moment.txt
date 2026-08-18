@@ -1,0 +1,6 @@
+# EPISODE
+track: Dipole Moment
+title: 
+tagline: Containment Field
+album: Ultraluminal
+episode_number: 3
