@@ -45,7 +45,7 @@ func main() {
 
 	mux.HandleFunc("/updates", fsr.RiftHandler)
 	mux.HandleFunc("/releases", fsr.RiftHandler)
-	mux.HandleFunc("/hub", fsr.RiftHandler)
+	mux.HandleFunc("/hub", fsr.HubHandler)
 	mux.HandleFunc("/credits", fsr.AttributeHandler)
 
 	mux.HandleFunc("/isydia", fsr.IsydiaHandler)

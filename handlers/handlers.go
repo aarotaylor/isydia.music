@@ -43,7 +43,7 @@ func AttributeHandler(w http.ResponseWriter, r *http.Request) {
 	scree := ingress.GetScree()
 	liminal_spaces := ingress.GetLiminalSpaces()
 	// ---- End Narrative file read into memory ----
-	ultraluminal := ingress.UltraluminalTrackList()
+	ultraluminal := ingress.GetUltraluminal()
 
 	all_albums := []*model.Album{syaksa, makers, citadel, mm, scree, liminal_spaces, ultraluminal}
 	attrs := []*model.Asset{}
@@ -102,7 +102,7 @@ func ProcyonHandler(w http.ResponseWriter, r *http.Request) {
 	component := views.Home("__", "...")
 	// var discog []*model.Album{}
 
-	ultraluminal := narrative.UltraluminalTrackList()
+	ultraluminal := narrative.GetUltraluminal()
 	mm := narrative.GetMM()
 	liminal_spaces := narrative.GetLiminalSpaces()
 
@@ -114,11 +114,32 @@ func ProcyonHandler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+func HubHandler(w http.ResponseWriter, r *http.Request) {
+
+	component := views.Home("__", "...")
+	// var discog []*model.Album{}
+
+	// ultraluminal := narrative.UltraluminalTrackList()
+	// mm := narrative.GetMM()
+	// liminal_spaces := narrative.GetLiminalSpaces()
+
+	// discog := []*model.Album{ultraluminal, mm, liminal_spaces}
+
+	links_isydia := model.GetIsydiaLinks()
+	links_procyon := model.GetProcyonLinks()
+
+	component = views.HubLayout(links_isydia, links_procyon) // for now, just render the first StoryText block of the first Anchor in the Narrative. To be replaced with a more robust rendering of the full Narrative.
+	if err := component.Render(r.Context(), w); err != nil {
+		http.Error(w, "Render error", http.StatusInternalServerError)
+	}
+}
+
 func CollectionHandler(w http.ResponseWriter, r *http.Request) {
 
 	// collection, item_name := pathToNames(r.URL.Path)
 	collection := r.PathValue("collection")
 
+	fmt.Printf("[[ Collection Handler -- collection: %s ]]", collection)
 	syaksa := ingress.GetSyaksa()
 
 	makers := ingress.GetMakers_I()
@@ -127,7 +148,7 @@ func CollectionHandler(w http.ResponseWriter, r *http.Request) {
 	scree := ingress.GetScree()
 	liminal_spaces := ingress.GetLiminalSpaces()
 	// ---- End Narrative file read into memory ----
-	ultraluminal := ingress.UltraluminalTrackList()
+	ultraluminal := ingress.GetUltraluminal()
 
 	// cmp := views.CollectionLayout(syaksa)
 
@@ -237,6 +258,10 @@ func pathToNames(path string) (string, string) {
 	return collection, item_name
 }
 
+func lowerAndUnder(s string) string {
+	return strings.Replace(strings.ToLower(s), " ", "_", -1)
+}
+
 // Function handles the rendering of narrative pages. It will parse the file denoted in the request.
 // For now, it reads one file (to be replaced with an objectbox read), and outputs one StoryText block and the episode tagline as a test.
 // Eventually, it will render the full narrative with appropriate formatting based on the path after /narratives.
@@ -247,6 +272,19 @@ func NarrativeHandler(w http.ResponseWriter, r *http.Request) {
 	//
 	var narrative *model.Narrative
 	var err error
+
+	// need a way to map narrative episode numbers to narrative files.
+	// knowing that information, the way to link narrative files together such that
+	// one narrative page can link to another narrative page, is to have a map of
+	// narrative episode numbers to narrative files, and then use that map to determine which
+	// narrative file to read next when a link is clicked. This will allow for the creation
+	// of a narrative tree, where each narrative page can link to multiple other narrative pages,
+	// and the user can navigate through the narrative tree by clicking on links.
+
+	// the format for these links will be /narratives/{collection}/{episode}, where collection
+	// is the name of the collection (album) and episode is the name of the episode (narrative file).
+	// The narrative files will be stored in a directory structure that matches this format, so that
+	// the narrative files can be easily located based on the URL path.
 
 	collection := r.PathValue("collection")
 	item_name := r.PathValue("episode")
@@ -278,14 +316,52 @@ func NarrativeHandler(w http.ResponseWriter, r *http.Request) {
 
 	}
 
+	// Current state as of [[ 2026-07-10 ]]
+	// Sequential navigation between narrative pages (tracks) is nearly implemented.
+	// a problem has arisen where collection seemingly isn't being pulled from the url, preventing
+	// preventing the forward and back links from being generated correctly.
+	//
+	//
+	// [ This is likely due to the fact that the collection variable is being set to an empty
+	// 	string, which is causing the switch statement to fall through to the default case,
+	// 	which renders the home page instead of the narrative page. This needs to be fixed in order for
+	// the forward and back links to work correctly. ]
+
+	fmt.Printf("[ Parsed narrative: %s ] \n", collection)
+	album := ingress.CollectionSwitch(collection) // this will return the story object.
+	// should this pointer be the base unit that is passed around instead of model.Narrative??
+
+	fmt.Printf("[ Returned album: %v] \n", album.AlbumName)
+	// uri_root := "/narratives/" + lowerAndUnder(collection)
+	forward := ""
+	back := ""
+
+	// if narrative.Episode.EpisodeNumber == len(album.Narratives)-1 {
+	// 	forward = uri_root + "/" + lowerAndUnder(collection)
+	// } else {
+	// 	forward = uri_root + "/" + lowerAndUnder(album.Narratives[narrative.Episode.EpisodeNumber-1].Episode.EpisodeTitle)
+	// }
+	// if narrative.Episode.EpisodeNumber == 0 {
+	// 	back = uri_root + "/" + lowerAndUnder(album.Narratives[0].Episode.EpisodeTitle)
+	// } else {
+	// 	back = uri_root + "/" + lowerAndUnder(album.Narratives[narrative.Episode.EpisodeNumber-1].Episode.EpisodeTitle)
+	// }
+
+	narr_navv := &model.NarrNav{
+		ID:       narrative.Episode.ID,
+		PrevLink: back,
+		NextLink: forward,
+		Name:     narrative.Episode.TrackName,
+	}
+
 	switch collection {
-	case "syaksa", "manifold_existence":
-		component := views.NarrativePage(narrative.Episode.EpisodeTitle, item_name, "Isydia", narrative)
+	case "syaksa", "makers_i", "scree":
+		component := views.NarrativePage(narrative.Episode.EpisodeTitle, item_name, "Isydia", narrative, narr_navv)
 		if err := component.Render(r.Context(), w); err != nil {
 			http.Error(w, "Render error", http.StatusInternalServerError)
 		}
-	case "liminal_spaces", "ultraluminal":
-		component := views.NarrativePage(narrative.Episode.EpisodeTitle, item_name, "Procyon B", narrative)
+	case "liminal_spaces", "ultraluminal", "citadel", "midnight_metropolis":
+		component := views.NarrativePage(narrative.Episode.EpisodeTitle, item_name, "Procyon B", narrative, narr_navv)
 		if err := component.Render(r.Context(), w); err != nil {
 			http.Error(w, "Render error", http.StatusInternalServerError)
 

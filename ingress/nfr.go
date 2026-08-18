@@ -10,6 +10,44 @@ const (
 	NFPATH = "./Narrative/"
 )
 
+func CollectionSwitch(collection string) *Shape.Album {
+	switch collection {
+	case "syaksa":
+		return GetSyaksa()
+	case "scree":
+		return GetScree()
+	case "makers_i":
+		return GetMakers_I()
+	case "liminal_spaces":
+		return GetLiminalSpaces()
+	case "citadel":
+		return GetCitadel()
+	case "ultraluminal":
+		return GetUltraluminal()
+	case "midnight_metropolis":
+		return GetMM()
+	default:
+		return nil
+	}
+}
+
+func StorySwitch(narrative *Shape.Narrative) *Shape.Album {
+	switch narrative.Episode.Album {
+	case "Portal|Penrose Engine|Astraphobia|Atomkraft|Bulwark|Proton Decay":
+		return GetSyaksa()
+	case "Scree":
+		return GetScree()
+	case "Makers I":
+		return GetMakers_I()
+	case "Liminal Spaces":
+		return GetLiminalSpaces()
+	case "Citadel":
+		return GetCitadel()
+	default:
+		return nil
+	}
+}
+
 // This module will read in the Narrative file directory, populating objectbox, and contains
 // other functions and methods that will be related to reading narrative files
 // toggle the preference for file vs objectbox copy;
@@ -263,7 +301,7 @@ func GetMM() *Shape.Album {
 	return album
 }
 
-func UltraluminalTrackList() *Shape.Album {
+func GetUltraluminal() *Shape.Album {
 
 	var album *Shape.Album
 
@@ -329,7 +367,7 @@ func UltraluminalTrackList() *Shape.Album {
 
 	atomkraft := &Shape.Narrative{
 		Episode: Shape.EpisodeText{
-			TrackName:     "Atomkraft",
+			TrackName:     "Geochronology",
 			EpisodeTitle:  "",
 			TaglineText:   "Signal Dissemination",
 			Album:         "Ultraluminal",
@@ -339,8 +377,8 @@ func UltraluminalTrackList() *Shape.Album {
 
 	ultraluminal := &Shape.Narrative{
 		Episode: Shape.EpisodeText{
-			TrackName:     "Ultraluminal",
-			EpisodeTitle:  "",
+			TrackName:     "Emergence",
+			EpisodeTitle:  "Fractalized Awareness",
 			TaglineText:   "",
 			Album:         "Ultraluminal",
 			EpisodeNumber: 7,
@@ -349,7 +387,7 @@ func UltraluminalTrackList() *Shape.Album {
 
 	coordinate_space := &Shape.Narrative{
 		Episode: Shape.EpisodeText{
-			TrackName:     "Coordinate Space",
+			TrackName:     "Ariadne's Adytum",
 			EpisodeTitle:  "",
 			TaglineText:   "",
 			Album:         "Ultraluminal",
