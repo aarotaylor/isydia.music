@@ -9,7 +9,7 @@ episode_number: 7
 0 | Vachis | Thought |「...」
 T | 77 | Scene |
 1 | Narrator | Thought | ...expansion...like the breach of a containment field attempting to hold energies beyond itself, Vachis felt the scale of their awareness press against their corporeal form. Time slowed, attempting to get away from the energized` [[Shards | Shard]] `proved increasingly difficult. Limbs were sluggish, heavy; laggard.  
-T | 80 | Scene |
+T | 96 | Scene |
 2 | Narrator | Thought | All while their Mind was frantic. Foldspace. Relays. Reach--BREACH--. Body.  falling. 
 3 | Narrator | Thought | Falling.
 4 | Vachis | Thought | FALLING. 
@@ -17,10 +17,12 @@ T | 80 | Scene |
 T | 116 | Scene | Visions of Grandeur
 6 | Vachis | Thought | --THRASH--
 7 | Narrator | Thought | pushed them off
+T | 125 | Scene | Visions of Grandeur
 8 | Vachis | Thought | --PERSIST--
 9 | Narrator | Thought | the artifact's dais and
 10 | Vachis | Thought | --SEEK--
 12 | Narrator | Thought | it took great
+T | 143 | Scene | Visions of Grandeur
 13 | Vachis | Thought | --ENEMY--
 14 | Narrator | Thought | will to keep their attention on their
 15 | Vachis | Thought | --PURPOSE--
@@ -36,9 +38,12 @@ T | 174 | Scene |
 T | 182 | Scene | 
 22 | Narrator | Thought | There was no separation to the distant destinations ttheir Station led to, after a certain threshold had been reached, Vachis felt more than he observed; the immensity unfolding unto jagged infinity. 
 23 | Narrator | Thought | He understood what ttheir meant. they had scarcely begun to fall before the inevitability of ttheir moment revealed itself to them. 
+T | 211 | Scene |
+23 | Narrator | Thought | ⌞---- ⁂ ----⌝
 T | 229 | Scene | 
 24 | Narrator | Thought | their awareness took one final gasp above the latent field. A final, peaceful recognition of transcendance.
 25 | Narrator | Thought | Ttheir ` [[Event Horizon]] `would change them, but he knew not how
 
 26 | Vachis | Spoken | *"I have glimpsed the Great One's Sight....`and i must return to it, as we have seen too much.`"*
+T | 250 | Scene | 
 # END

@@ -4,3 +4,13 @@ title: Sacred Cycles
 tagline: 
 album: Ultraluminal
 episode_number: 4
+
+# STORY
+
+T | 110 | Scene |
+1 | Eknekosk | Spoken | "...repetition is the language of the natural; persistence belongs to a cycle."
+T | 127 | Scene |
+1 | Eknekosk | Spoken | "An end to that persistence can take many forms, thankful are we to witness such an act of creation."
+T | 137 | Scene |
+
+# END

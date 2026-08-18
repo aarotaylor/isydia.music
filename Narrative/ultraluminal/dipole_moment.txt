@@ -4,3 +4,20 @@ title:
 tagline: Containment Field
 album: Ultraluminal
 episode_number: 3
+
+# STORY
+1 | Foreman | Spoken | "Rev it up!"
+1 | Yanix | Thought | Yanix opened the conduit, and the stone wall before him parted revealing an incandescent orange pillar of light. This conduit had direct input from the Core, focusing the pillar of light down into the habitat below. By holding the conduit open, Yanix let it feed and amplify the Dynamo he and his team was responsible for. 
+1 | Yanix | Thought | A baseline magnetic field was active at all times to protect itself from harmful stellar and galactic radiation, and this base strength was about on par with an midsize gas giant that had an active core. It felt like a fuzzy blanket to Yanix; a comforting sensation whose absence was felt more than it's presence. If it was gone, that usually meant somebody on his team would be *retired*. 
+1 | Yanix | Thought | The baseline field was fine for everyday existence in this active section of the galaxy, but larger threats required a scale up in power of about an order of magnitude. Threats Yanix wasn't privy to. He found that this didn't bother him, his task was a simple one and it gave him satisfaction to perform it well.
+1 | Yanix | Thought | Yanix watched as superheated plasma flowed from the open conduit down into the floor, where it would join the main Dynamo channels deep beneath the surface. Yanix couldn't remember a time when he hadn't been part of this team. He lived in a small forest home, well above the main habitat. 
+1 | Yanix | Thought | He recalled the informal designation as [[The Forbidden Forest]], and found it strange; as long as he could remember, he'd  lived up here. Forbidden for who? The creatures down in the main habitats couldn't be classified as sentient, even the ones that flew rarely made it high enough. 
+1 | Yanix | Thought | There were a few animals that he would see from time to time near his home, small, skittish things, so clearly *they* weren't forbidden. In any case, he and his companions scattered about the Forest weren't forbidden. It was home, and it was all he knew.
+1 | Yanix | Thought | Yanix's curiosity faded at this, and returned his focus back to the task at hand. Hold the conduit open.
+T | 126 | Scene | 
+1 | Yanix | Thought | He didn't need to look at the console to know when resonance had been achieved; the incoming plasma channel had shifted to a whiter orange hue, and its magnetic field began behaving something like a standing wave, which he perceived as a buzzing which vibrated his skin.
+1 | Yanix | Thought | Yanix felt increased pressure on the field (a tight, prickly blanket pressing him from all sides), which meant the brunt of the incoming threat had arrived. At this, elsewhere in the Forest, one of his teammates would be adjusting the incoming rate of plasma in real time, using measurements from one of the Relays.
+T | 148 | Scene |
+1 | Yanix | Thought | And just as quickly as it had begun, the pressure faded abruptly and Yanix felt a return to the familiar cozy sensation of the base field.
+1 | Yanix | Thought | Yanix moved to return to his home, but realized he had no idea which direction to turn.
+# END

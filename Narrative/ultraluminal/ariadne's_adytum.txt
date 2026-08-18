@@ -4,3 +4,11 @@ title: Labyrinthine Leading
 tagline: 
 album: Ultraluminal
 episode_number: 5
+
+
+# STORY
+1 | Emissary | Spoken | "Channel open, orient the Shard and begin Resonance Protocol."
+T | 45 | Scene |
+1 | Emissary | Spoken | "...resonance induction acheived with 0.00032% of Core output. Shard responds well and remains stable. Engage Alignment procedure..."
+
+# END

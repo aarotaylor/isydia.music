@@ -4,3 +4,13 @@ title:
 tagline: Nexus
 album: Ultraluminal
 episode_number: 13
+
+# STORY
+
+T | 77 | Scene | 
+1 | Narrator | Spoken | "...through higher dimensions, they have more room to be..."
+
+T | 96 | Scene |
+1 | Narrator | Thought | Stepping up to view the dozens of images present within the nexus, now viewed through a filter of amber, it became apparent that i was a nexus unto myself; in many of the reflections I presented older. Harder eyes in one. Radiating wrinkles from my eyes in many. Styles completely foreign, yet magnetic to some deep part within myself... how fleeting the thread to each possibility.
+
+# END

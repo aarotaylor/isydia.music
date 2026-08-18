@@ -4,3 +4,10 @@ title: Dark Forests
 tagline: 
 album: Ultraluminal
 episode_number: 3
+
+# STORY
+T | 183 | Scene | 
+1 | Narrator | Thought | As he stood, scents of salty marine air saturated his awareness. The vacuous space foreign and still, broken by an intrusive sense of flat curiosity and echoing footsteps. 
+1 | Narrator | Thought | A voice entered his mind: 
+1 | Emissary | Spoken | "How did you get here?"`
+# END
