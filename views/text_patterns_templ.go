@@ -116,7 +116,7 @@ func OpenDataStream02() templ.Component {
 			templ_7745c5c3_Var4 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "<div class=\"text-header textends\"><br>⌞⁂⌝<br>/.\\<br>..<br>「...」<br>⌞---- ⁂ ----⌝<br></div>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "<br><div class=\"text-header textends\">⌞⁂⌝<br>/.\\<br>..<br>「...」<br>⌞---- ⁂ ----⌝</div><br>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

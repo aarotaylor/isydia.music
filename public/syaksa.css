@@ -334,6 +334,12 @@ table {
     margin-right: auto;
 }
 
+.attribute-table{
+    display:flex;
+    background-color: rgba(208, 255, 0, 0.82);
+    
+}
+
 #audioPlayer {
     position: sticky;
     top: 0;

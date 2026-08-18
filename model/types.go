@@ -31,12 +31,21 @@ type Narrative struct {
 	ID         uint64    `json:"id"`
 	Collection []*Anchor // Slice of StoryText blocks, ordered by timestamp
 	Episode    EpisodeText
+	// Links      *ExternalLinkContainer // Contains previous and next epiisode links, as well as any other relevant ones
+}
+
+type NarrNav struct {
+	ID       uint64 `json:"id"`
+	PrevLink string
+	NextLink string
+	Name     string
 }
 
 type ExternalLink struct {
 	ID          uint64 `json:"id"`
 	URL         string
 	Description string
+	Name        string
 }
 
 type ExternalLinkContainer struct {

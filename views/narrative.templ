@@ -1,85 +1,84 @@
 package views
 
 import (
-    "isydia.music/model"
+	"isydia.music/model"
+	//Story "isydia.music/ingress"
 	"strings"
+	// "strconv"
 )
 
-templ Narrative(){
-    @NavBar()
-    @OpenDataStream01()
-    @CloseDataStream01()
+templ Narrative() {
+	@NavBar()
+	@OpenDataStream01()
+	@CloseDataStream01()
 }
 
-
 func lowerAndUnder(s string) string {
-    return strings.Replace(strings.ToLower(s), " ", "_", -1)
+	return strings.Replace(strings.ToLower(s), " ", "_", -1)
 }
 
 templ TextItem(text, speaker, voice string) {
-    <p class={"text-between", speaker+"-"+voice}>{ text }</p>
+	<p class={ "text-between", speaker+"-"+voice }>{ text }</p>
 }
 
 templ NarrativeTable(collection string, narratives []*model.Narrative) {
 	<br/>
-	
-	<p><a href={"/narratives/" + lowerAndUnder(collection)}>{collection}</a></p>
-	<table class="narrative-table">	
-			<thead class="narrative-entry">
+	<p><a href={ "/narratives/" + lowerAndUnder(collection) }>{ collection }</a></p>
+	<table class="narrative-table">
+		<thead class="narrative-entry">
 			<tr>
 				<th>Narrative</th>
 				<th>Title</th>
 				<th></th>
-				</tr>
-				
-			</thead>
+			</tr>
+		</thead>
 		for _, narrative := range narratives {
 			<tbody class="narrative-entry">
 				<th><a class="episode-link" href={ "/narratives/" + lowerAndUnder(collection) + "/" + lowerAndUnder(narrative.Episode.TrackName) }>{ narrative.Episode.TrackName }</a></th>
 				<th>{ narrative.Episode.EpisodeTitle }</th>
 				<th>{ narrative.Episode.TaglineText }</th>
-					
 			</tbody>
 		}
-		
 	</table>
-		// { range .Narratives }
-		// <tr>
-		// 	<td>{ .Episode.EpisodeTitle }</td>
-		// 	<td>{ .Episode.TrackName }</td>
-		// 	<td>{ .Episode.TaglineText }</td>
-		// </tr>
-		// { end }
+	// { range .Narratives }
+	// <tr>
+	// 	<td>{ .Episode.EpisodeTitle }</td>
+	// 	<td>{ .Episode.TrackName }</td>
+	// 	<td>{ .Episode.TaglineText }</td>
+	// </tr>
+	// { end }
 }
 
 // This template navigates according to the narrative structure.
 // Three links: Previous, Collection, Next.
-templ NavNarrative(){
-	<a class="step-back" href="">Back</a>
-	<a class="home" href="">
+templ NavNarrative(back string, collection string, forward string) {
+	<a class="step-back" href={ back }>Back</a>
+	<a class="hub" href={ collection }>
 		<img class="portrait" src="/static/home.png" alt="Home"/>
 	</a>
-	<a class="step-forward" href="">Forward</a>
+	<a class="step-forward" href={ forward }>Forward</a>
 }
 
-// Renders a 
+// Renders a
 templ AnchorItem(anchor model.Anchor) {
-    @Timestamp(anchor.Timestamp)
-    for _, storyText := range anchor.Sequence {
-        @TextItem(storyText.Text, strings.ToLower(storyText.Speaker), strings.ToLower(storyText.Voice))
-    }
+	@Timestamp(anchor.Timestamp)
+	for _, storyText := range anchor.Sequence {
+		@TextItem(storyText.Text, strings.ToLower(storyText.Speaker), strings.ToLower(storyText.Voice))
+	}
 }
 
-templ NarrativePage(title, item_name, artist string, narrative *model.Narrative) {
-    @NarrativeLayout(title, item_name, narrative, artist) {
-        for _, anchor := range narrative.Collection {
-            @AnchorItem(*anchor)
-        }
-    }
+// Sequential navigation between Narratives (Tracks) are calculated here.
+// Time will tell if this is the best way to do it, but for now, it works.
+templ NarrativePage(title, item_name, artist string, narrative *model.Narrative, narr_nav *model.NarrNav) {
+	@NarrativeLayout(title, item_name, narrative, artist, narr_nav.PrevLink, narr_nav.NextLink) {
+		for _, anchor := range narrative.Collection {
+			@AnchorItem(*anchor)
+		}
+	}
 }
 
 // all text coming in must be ToLower()'d
-templ NarrativeLayout(title string, item_name string, narrative *model.Narrative, artist string) {
+templ NarrativeLayout(title string, item_name string, narrative *model.Narrative, artist, back, forward string) {
 	<!DOCTYPE html>
 	<html lang="en">
 		<head>
@@ -88,20 +87,19 @@ templ NarrativeLayout(title string, item_name string, narrative *model.Narrative
 			<title>{ title }</title>
 			<link rel="stylesheet" href="/static/syaksa.css"/>
 		</head>
-		<body class={ item_name }>
+		<body class={ strings.Replace(strings.ToLower(artist), " ", "_", -1), item_name }>
 			@NavBar()
 			<header>
 				<h1></h1>
 				@Title(narrative.Episode.TrackName, narrative.Episode.EpisodeTitle, narrative.Episode.TaglineText)
 			</header>
-
-			@NavNarrative()
+			@NavNarrative(back, title, forward)
 			<br/>
 			@AudioPlayer(item_name, artist)
-			<div class={"body-text", strings.Replace(narrative.Episode.TrackName, " ", "-", -1)+"-text"}>
-			@OpenDataStream01()
+			<div class={ "body-text", strings.Replace(narrative.Episode.TrackName, " ", "-", -1)+"-text" }>
+				@OpenDataStream01()
 				{ children... }
-			@CloseDataStream01()
+				@CloseDataStream01()
 			</div>
 			<footer>
 				<p>{ title }</p>
@@ -110,11 +108,9 @@ templ NarrativeLayout(title string, item_name string, narrative *model.Narrative
 	</html>
 }
 
-templ Timestamp(timestamp int){
-
-    // convert from int into mm:ss
+templ Timestamp(timestamp int) {
+	// convert from int into mm:ss
 	<div class="track-time">
-        <b class="timestamp" data-time={timestamp}>⌞---- {model.SecondsToMMSS(timestamp)} ----⌝</b>
-    </div>
+		<b class="timestamp" data-time={ timestamp }>⌞---- { model.SecondsToMMSS(timestamp) } ----⌝</b>
+	</div>
 }
-

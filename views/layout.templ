@@ -155,6 +155,34 @@ templ CollectionLayout(collection *model.Album) {
 	</html>
 }
 
+templ HubLayout(isydia, procyon_b []*model.ExternalLink) {
+	<!DOCTYPE html>
+	<html lang="en">
+		<head>
+			<meta charset="UTF-8"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+			<title>Link Hub</title>
+			<link rel="stylesheet" href="/static/syaksa.css"/>
+		</head>
+		<body>
+			@NavBar()
+			<header>
+				<h1>Link Hub</h1> // eventually hide an easter egg here. perhaps something related to the Relays
+			</header>
+			<br/>
+			<div class="body-text">
+				@OpenDataStream02()
+				@LinkTable("Isydia", isydia) // eventually have this split into multiple tables (Isydia, Procyon B, both, neither, etc.)
+				@LinkTable("Procyon B", procyon_b) // eventually have this split into multiple tables (Isydia, Procyon B, both, neither, etc.)
+				@CloseDataStream01()
+				{ children... }
+			</div>
+			<footer>
+			</footer>
+		</body>
+	</html>
+}
+
 // TODO: take in artist
 templ AudioPlayer(item_name, artist string) {
 	<audio id="audioPlayer" class={ "ac-" + item_name } controls>
@@ -173,7 +201,7 @@ templ NavBar() {
 			<a class="navlink" href="/narratives">Narratives</a>
 			<a class="navlink" href="/updates">Updates</a>
 			<a class="navlink" href="/purpose">Purpose</a>
-			<a class="navlink" href="/releases">Releases</a>
+			<a class="navlink" href="https://isydia.bandcamp.com/">Releases</a>
 			<a class="navlink" href="/hub">Links</a>
 			<a class="navlink" href="/credits">Attributes</a> // Credits for the project, and component pieces
 		</div>
@@ -195,7 +223,22 @@ templ TrackTime(episode, elapsed_time string, timestamp int) {
 	</div>
 }
 
-
+templ LinkTable(header string, attributes []*model.ExternalLink) {
+	<table class="attribute-table">
+		<tr>
+			<th>{ header }</th>
+			// <th>URL</th>
+			// <th>Description</th>
+		</tr>
+		for _, attr := range attributes{
+			<tr>
+				//<td><img src={attr.Filename}></td>
+				<td><a href={ attr.URL } target="_blank">{ attr.Name }</a></td>
+				// <td>{ attr.Description }</td>
+			</tr>
+		}
+	</table>
+}
 
 
 templ AssetTable(attributes []*model.Asset) {
